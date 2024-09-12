@@ -4,104 +4,104 @@ local shouldCraft, shouldCraftRecipe;
 
 addonTable.getEngineeringCurrentSkillLevelRecipeToCraft = function(rank)
     if rank > 0 and rank < 21 then -- 1-20
-        shouldCraft = {"Rough Blasting Powder"};
-        shouldCraftRecipe = {"1x Rough Stone"};
+        shouldCraft = {"Грубое взрывчатое вещество"};
+        shouldCraftRecipe = {"1x Грубый камень"};
     elseif rank > 20 and rank < 31 then -- 21-30
         shouldCraft = {
-            "Rough Dynamite",
-            "Rough Blasting Powder"
+            "Грубый динамит",
+            "Грубое взрывчатое вещество"
         };
         shouldCraftRecipe = {
-            "2x Rough Blasting Powder, 1x Linen Cloth", -- Rough Dynamite
-            "1x Rough Stone" ----------------------------- Rough Blasting Powder
+            "2x Грубое взрывчатое вещество, 1x Льняной материал", -- Грубый динамит
+            "1x Грубый камень" ----------------------------- Грубое взрывчатое вещество
         };
     elseif rank > 30 and rank < 50 then -- 31-49
         shouldCraft = {
-            "Handful of Copper Bolts",
-            "Rough Dynamite"
+            "Горсть медных винтов",
+            "Грубый динамит"
         };
         shouldCraftRecipe = {
-            "1x Copper Bar", ---------------------------- Handful of Copper Bolts
-            "2x Rough Blasting Powder, 1x Linen Cloth" -- Rough Dynamite
+            "1x Медный слиток", ---------------------------- Горсть медных винтов
+            "2x Грубое взрывчатое вещество, 1x Льняной материал" -- Грубый динамит
         };
     elseif rank > 49 and rank < 51 then -- 50
         shouldCraft = {
-            "Arclight Spanner",
-            "Copper Tube"
+            "Тангенциальный вращатель",
+            "Медная труба"
         };
         shouldCraftRecipe = {
-            "6x Copper Bar", --------------- Arclight Spanner
-            "2x Copper Bar, 1x Weak Flux" -- Copper Tube
+            "6x Медный слиток", --------------- Тангенциальный вращатель
+            "2x Медный слиток, 1x Слабый плавень" -- Медная труба
         };
     elseif rank > 50 and rank < 75 then -- 51-74
         shouldCraft = {
-            "Copper Tube",
-            "Arclight Spanner"
+            "Медная труба",
+            "Тангенциальный вращатель"
         };
         shouldCraftRecipe = {
-            "2x Copper bar, 1x Weak Flux", -- Copper Tube
-            "6x Copper Bar" ----------------- Arclight Spanner
+            "2x Медный слиток, 1x Слабый плавень", -- Медная труба
+            "6x Медный слиток" ----------------- Тангенциальный вращатель
         };
     elseif rank > 74 and rank < 85 then -- 75-84
         shouldCraft = {
-            "Coarse Blasting Powder",
-            "Copper Tube",
-            "Arclight Spanner"
+            "Низкосортное взрывчатое вещество",
+            "Медная труба",
+            "Тангенциальный вращатель"
         };
         shouldCraftRecipe = {
-            "1x Coarse Stone", -------------- Coarse Blasting Powder
-            "2x Copper Bar, 1x Weak Flux", -- Copper Tube
-            "6x Copper Bar" ----------------- Arclight Spanner
+            "1x Необработанный камень", -------------- Низкосортное взрывчатое вещество
+            "2x Медный слиток, 1x Слабый плавень", -- Медная труба
+            "6x Медный слиток" ----------------- Тангенциальный вращатель
         };
     elseif rank > 84 and rank < 90 then -- 85-89
         shouldCraft = {
-            "Coarse Dynamite",
-            "Coarse Blasting Powder",
-            "Copper Tube"
+            "Низкосортный динамит",
+            "Низкосортное взрывчатое вещество",
+            "Медная труба"
         };
         shouldCraftRecipe = {
-            "3x Coarse Blasting Powder, 1x Linen Cloth", -- Coarse Dynamite
-            "1x Coarse Stone", ---------------------------- Coarse Blasting Powder
-            "2x Copper Bar, 1x Weak Flux" ----------------- Copper Tube
+            "3x Низкосортное взрывчатое вещество, 1x Льняной материал", -- Низкосортный динамит
+            "1x Необработанный камень", ---------------------------- Низкосортное взрывчатое вещество
+            "2x Медный слиток, 1x Слабый плавень" ----------------- Медная труба
         };
     elseif rank > 89 and rank < 110 then -- 90-109
         shouldCraft = {
-            "Silver Contact",
-            "Copper Modulator"
+            "Серебряный контакт",
+            "Медный регулятор"
         };
         shouldCraftRecipe = {
-            "1x Silver Bar", ------------------------------------------ Silver Contact
-            "2x Handful Copper Bolts, 1x Copper Bar, 2x Linen Cloth" -- Copper Modulator
+            "1x Серебряный слиток", ------------------------------------------ Серебряный контакт
+            "2x Горсть медных винтов, 1x Медный слиток, 2x Льняной материал" -- Медный регулятор
         };
     elseif rank > 109 and rank < 125 then -- 110-124
         shouldCraft = {
-            "Bronze Tube",
-            "Large Copper Bomb",
-            "Silver Contact"
+            "Бронзовая трубка",
+            "Большая медная бомба",
+            "Серебряный контакт"
         };
         shouldCraftRecipe = {
-            "2x Bronze Bar, 1x Weak Flux", ----------------------------------- Bronze Tube
-            "3x Copper bars, 4x Coarse Blasting Powder, 1x silver contact", -- Large Copper Bomb
-            "1x Silver Bar" -------------------------------------------------- Silver Contact
+            "2x Бронзовый слиток, 1x Слабый плавень", ----------------------------------- Бронзовая трубка
+            "3x Медный слиток, 4x Низкосортное взрывчатое вещество, 1x Серебряный контакт", -- Большая медная бомба
+            "1x Серебряный слиток" -------------------------------------------------- Серебряный контакт
         };
     elseif rank > 124 and rank < 135 then -- 125-134
-        shouldCraft = {"Heavy Blasting Powder"};
-        shouldCraftRecipe = {"1x Heavy Stone"};
+        shouldCraft = {"Тяжелое взрывчатое вещество"};
+        shouldCraftRecipe = {"1x Тяжелый камень"};
     elseif rank > 134 and rank < 145 then -- 135-144
         shouldCraft = {
-            "Whirring Bronze Gizmo",
-            "Heavy Blasting Powder"
+            "Трещащий бронзовый механизм",
+            "Тяжелое взрывчатое вещество"
         };
         shouldCraftRecipe = {
-            "2x Bronze Bar, 1x Wool Cloth", -- Whirring Bronze Gizmo
-            "1x Heavy Stone" ----------------- Heavy Blasting Powder
+            "2x Бронзовый слиток, 1x Шерсть", -- Трещащий бронзовый механизм
+            "1x Тяжелый камень" ----------------- Тяжелое взрывчатое вещество
         };
     elseif rank > 144 and rank < 150 then -- 145-149
-        shouldCraft = {"Whirring Bronze Gizmo"};
-        shouldCraftRecipe = {"2x Bronze Bar, 1x Wool Cloth"};
+        shouldCraft = {"Трещащий бронзовый механизм"};
+        shouldCraftRecipe = {"2x Бронзовый слиток, 1x Шерсть"};
     elseif rank > 149 and rank < 155 then -- 150-154
         shouldCraft = {"Bronze Framework"};
-        shouldCraftRecipe = {"2x Bronze Bar, 1x Medium Leather, 1x Wool Cloth"};
+        shouldCraftRecipe = {"2x Бронзовый слиток, 1x Medium Leather, 1x Шерсть"};
     elseif rank > 154 and rank < 175 then -- 155-174
         shouldCraft = {
             "Explosive Sheep",
@@ -109,7 +109,7 @@ addonTable.getEngineeringCurrentSkillLevelRecipeToCraft = function(rank)
             "Iron Strut"
         };
         shouldCraftRecipe = {
-            "2x Heavy Blasting Powder, 1x Whirring Bronze Gizmo, 1x Bronze Framework, 2x Wool Cloth", -- Explosive Sheep
+            "2x Тяжелое взрывчатое вещество, 1x Трещащий бронзовый механизм, 1x Bronze Framework, 2x Шерсть", -- Explosive Sheep
             "1x Gold Bar", ----------------------------------------------------------------------------- Gold Power Core
             "2x Iron Bar" ------------------------------------------------------------------------------ Iron Strut
         };

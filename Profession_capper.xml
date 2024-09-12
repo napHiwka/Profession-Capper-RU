@@ -67,7 +67,7 @@
             </Texture>
 
 
-            <FontString inherits="GameFontNormal" text="Next recipe you should craft">
+            <FontString inherits="GameFontNormal" text="Необходимо скрафтить">
                 <Anchors>
                     <Anchor point="TOP" relativeTo="$parentTitle">
                         <Offset>
