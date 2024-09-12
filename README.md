@@ -1,90 +1,91 @@
-# About Profession Capper
-**Profession Capper** is a World of Warcraft(3.3.5) addon that will show you how to level up your **trade skills** to its cap(450) based on your current profession skill level
+# Profession Capper
+**Profession Capper** — это аддон для World of Warcraft (версии 3.3.5), который поможет прокачать профессии до максимального уровня (450), исходя из текущего уровня навыка.
 
-When you open your **Profession frame**, the **Profession Capper frame** will be opened too, telling you which recipe you'd better to craft next in order to reach next level of that **profession**
+При открытии **окна профессии**, рядом откроется окно **Profession Capper**, которое подскажет, какой рецепт лучше создать, чтобы повысить уровень навыка вашей **профессии**.
 
-By default, the **Profession Capper frame** will be opened at the **Bottom Left** corner of the game screen, feel free to drag it as you want
+По умолчанию, окно **Profession Capper** расположено в **левом нижнем углу экрана**, но вы можете переместить его в любое удобное место.
 
-# Instructions
-1. Download lastest release of Profession_Capper
+# Инструкция
+1. Скачайте последнюю версию Profession_Capper:
 
-    - from [GitHub](https://github.com/SamuelLira99/Profession-Capper/releases)
-
-    - from [bestwowaddons.com](https://bestwowaddons.com/download/profession-capper/)
+    - с [GitHub](https://github.com/napHiwka/Profession-Capper-RU/releases)
 
 
-2. Extract the file "Profession_Capper.zip"
+2. Распакуйте архив "Profession_Capper.zip".
 
-3. Move the new "Profession_Capper" folder to `<WoW folder>/Interface/AddOns`
+3. Переместите новую папку "Profession_Capper" в каталог `<Папка с WoW>/Interface/AddOns`
 
-# Professions current status
+# Статус профессий
 
-### Primary Trade Skills
+### Основные профессии
 
-`Enchanting` - Fully supported
+`Наложение чар` - Полностью поддерживается
 
-`Tailoring` - Fully supported
+`Портняжное дело` - Полностью поддерживается
 
-`Blacksmithing` - Fully supported (revision pending)
+`Кузнечное дело` - Полностью поддерживается (необходим пересмотр)
 
-`Alchemy` - Fully supported (revision pending)
+`Алхимия ` - Полностью поддерживается (необходим пересмотр)
 
-`Engineering` - Fully supported
+`Инженерное дело` - Полностью поддерживается
 
-`Jewelcrafting` - Fully supported
+`Ювелирное дело` - Полностью поддерживается
 
-`Leatherworking` - Fully supported (revision pending)
+`Кожевничество` - Полностью поддерживается (необходим пересмотр)
 
-`Inscription` - Fully supported (revision pending)
+`Начертание` - Полностью поддерживается (необходим пересмотр)
 
-### Gathering Skills
-`Herbalism` - Not supported (probably won't be)
+### Собирательские профессии
+`Травничество` - Не поддерживается
 
-`Mining` - Not supported (low chances that it will be)
+`Горное дело` - Не поддерживается
 
-`Skinning` - Not supported (probably won't be)
+`Снятие шкур` - Не поддерживается
 
-### Secondary Professions
-`Cooking` - Fully supported
+### Второстепенные профессии
+`Кулинария` - Полностью поддерживается
 
-`First Aid` - Fully supported
+`Первая помощь` - Полностью поддерживается
 
-`Fishing` - Not supported (probably won't be)
+`Рыбная ловля` - Не поддерживается
 
-# Screenshots
+# Скриншоты с английском языком
 
-#### When the profession cap was already reached
+#### Когда профессия уже достигла максимума
 ![Profession Capper - cap already reached](https://imgur.com/viU8cIc.jpg)
 
-#### Enchanting
+#### Наложение чар
 ![Profession Capper - Enchanting](https://imgur.com/Zb8udRn.jpg)
 
-#### Tailoring
+#### Портняжное дело
 ![Profession Capper - Tailoring](https://imgur.com/qN6gBAN.jpg)
 
-#### Blacksmithing
+#### Кузнечное дело
 ![Profession Capper - Blacksmithing](https://imgur.com/m36QPKT.jpg)
 
-#### Alchemy
+#### Алхимия
 ![Profession Capper - Alchemy](https://imgur.com/74Cw1lp.jpg)
 
-#### Jewelcrafting
+#### Ювелирное дело
 ![Profession Capper - Jewelcrafting](https://imgur.com/rMzesUO.jpg)
 
-#### Leatherworking
+#### Кожевничество
 ![Profession Capper - Leatherworking](https://imgur.com/7Gn10JT.jpg)
 
-#### Inscription
+#### Начертание
 ![Profession Capper - Inscription](https://imgur.com/Zef1GWz.jpg)
 
-#### Cooking
+#### Кулинария
 ![Profession Capper - Cooking](https://imgur.com/wlDzjSS.jpg)
 
-#### First Aid
+#### Первая помощь
 ![Profession Capper - First Aid](https://imgur.com/voG9Ecr.jpg)
 
-#### When you didn't learn the recipe yet
+#### Когда рецепт еще не изучен
 ![Profession Capper - Recipe not learnt yet](https://imgur.com/Q2eXK6f.jpg)
 
-# Support
-You can open an issue on this repo, or mark `@SamuelLira99` on [Twitter](https://twitter.com/SamuelLira99)
+# Поддержка
+Вы можете создать тикет в репозитории 
+
+# Оригинальный автор
+`@SamuelLira99` - [Twitter](https://twitter.com/SamuelLira99)
