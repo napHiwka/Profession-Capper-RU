@@ -4,124 +4,124 @@ local shouldCraft, shouldCraftRecipe;
 
 addonTable.getFirstAidCurrentSkillLevelRecipeToCraft = function(rank)
     if rank > 0 and rank < 40 then --1 -39
-        shouldCraft = {"Linen Bandage"};
-        shouldCraftRecipe = {"1x Linen Cloth"};
+        shouldCraft = {"Льняные бинты"};
+        shouldCraftRecipe = {"1x Льняной материал"};
     elseif rank > 39 and rank < 80 then -- 40-79
-        shouldCraft = {"Heavy Linen Bandage"};
-        shouldCraftRecipe = {"2x Linen Cloth"};
+        shouldCraft = {"Плотные льняные бинты"};
+        shouldCraftRecipe = {"2x Льняной материал"};
     elseif rank > 79 and rank < 100 then -- 80-99
         shouldCraft = {
-            "Wool Bandage",
-            "Heavy Linen Bandage",
-            "Anti-Venom"
+            "Шерстяные бинты",
+            "Плотные льняные бинты",
+            "Противоядие"
         };
         shouldCraftRecipe = {
-            "1x Wool Cloth", ------ Wool Bandage
-            "2x Linen Cloth", ----- Heavy Linen Bandage
-            "1x Small Venom Sac" -- Anti-Venom
+            "1x Шерсть", ------ Шерстяные бинты
+            "2x Льняной материал", ----- Плотные льняные бинты
+            "1x Малая ядовитая железа" -- Противоядие
         };
     elseif rank > 99 and rank < 115 then -- 100-114
         shouldCraft = {
-            "Wool Bandage",
-            "Anti-Venom"
+            "Шерстяные бинты",
+            "Противоядие"
         };
         shouldCraftRecipe = {
-            "1x Wool Cloth", ------ Wool Bandage
-            "1x Small Venom Sac" -- Anti-Venom
+            "1x Шерсть", ------ Шерстяные бинты
+            "1x Малая ядовитая железа" -- Противоядие
         };
     elseif rank > 114 and rank < 130 then -- 115-129
-        shouldCraft = {"Heavy Wool Bandage"};
-        shouldCraftRecipe = {"2x Wool Cloth"};
+        shouldCraft = {"Плотные шерстяные бинты"};
+        shouldCraftRecipe = {"2x Шерсть"};
     elseif rank > 129 and rank < 150 then -- 130-149
         shouldCraft = {
-            "Heavy Wool Bandage",
-            "Strong Anti-Venom"
+            "Плотные шерстяные бинты",
+            "Мощное противоядие"
         };
         shouldCraftRecipe = {
-            "2x Wool Cloth", ------ Heavy Wool Bandage
-            "1x Large Venom Sac" -- Strong Anti-Venom
+            "2x Шерсть", ------ Плотные шерстяные бинты
+            "1x Большая ядовитая железа" -- Мощное противоядие
         };
     elseif rank > 149 and rank < 180 then -- 150-179
         shouldCraft = {
-            "Silk Bandage",
-            "Heavy Wool Bandage",
-            "Strong Anti-Venom"
+            "Шелковые бинты",
+            "Плотные шерстяные бинты",
+            "Мощное противоядие"
         };
         shouldCraftRecipe = {
-            "1x Silk Cloth", ------- Silk Bandage
-            "2x Whool Cloth", ------ Heavy Wool Bandage
-            "1x Large Venom Sack" -- Strong Anti-Venom
+            "1x Шелковый материал", ------- Шелковые бинты
+            "2x Шерсть", ------ Плотные шерстяные бинты
+            "1x Большая ядовитая железа" -- Мощное противоядие
         };
     elseif rank > 179 and rank < 210 then -- 180-209
-        shouldCraft = {"Heavy Silk Bandage"};
-        shouldCraftRecipe = {"2x Silk cloth"};
+        shouldCraft = {"Плотные шелковые бинты"};
+        shouldCraftRecipe = {"2x Шелковый материал"};
     elseif rank > 209 and rank < 240 then -- 210-239
         shouldCraft = {
-            "Mageweave Bandage",
-            "Heavy Silk Bandage"
+            "Бинты из магической ткани",
+            "Плотные шелковые бинты"
         };
         shouldCraftRecipe = {
-            "1x Mageweave Cloth", -- Mageweave Bandage
-            "2x Silk Cloth" -------- Heavy Silk Bandage
+            "1x Магическая ткань", -- Бинты из магической ткани
+            "2x Шелковый материал" -------- Плотные шелковые бинты
         };
     elseif rank > 239 and rank < 260 then -- 240-259
-        shouldCraft = {"Heavy Mageweave Bandage"};
-        shouldCraftRecipe = {"2x Mageweave Cloth"};
+        shouldCraft = {"Плотные бинты из магической ткани"};
+        shouldCraftRecipe = {"2x Магическая ткань"};
     elseif rank > 259 and rank < 290 then -- 260-289
         shouldCraft = {
-            "Runecloth Bandage",
-            "Heavy Mageweave Bandage"
+            "Руническая ткань Bandage",
+            "Бинты из рунической ткани"
         };
         shouldCraftRecipe = {
-            "1x Runecloth", ------- Runecloth Bandage
-            "2x Mageweave Cloth" -- Heavy Mageweave Bandage
+            "1x Руническая ткань", ------- Руническая ткань Bandage
+            "2x Магическая ткань" -- Бинты из рунической ткани
         };
     elseif rank > 289 and rank < 300 then -- 290-299
         shouldCraft = {
-            "Heavy Runecloth Bandage",
-            "Heavy Mageweave Bandage"
+            "Плотные бинты из рунической ткани",
+            "Бинты из рунической ткани"
         };
         shouldCraftRecipe = {
-            "2x Runecloth", --------- Heavy Runecloth Bandage
-            "2x Mageweave Bandage" -- Heavy Mageweave Bandage
+            "2x Руническая ткань", --------- Плотные бинты из рунической ткани
+            "2x Бинты из магической ткани" -- Бинты из рунической ткани
         };
     elseif rank > 299 and rank < 330 then -- 300-329
         shouldCraft = {
-            "Netherweave Bandage",
-            "Heavy Runecloth Bandage",
-            "Powerful Anti-Venom"
+            "Бинты из ткани Пустоты",
+            "Плотные бинты из рунической ткани",
+            "Мощное противоядие"
         };
         shouldCraftRecipe = {
-            "1x Netherweave Cloth", -- Netherweave Bandage
-            "2x Runecloth", ---------- Heavy Runecloth Bandage
-            "1x Huge Venom Sac" ------ Powerful Anti-Venom
+            "1x Ткань Пустоты", -- Бинты из ткани Пустоты
+            "2x Руническая ткань", ---------- Плотные бинты из рунической ткани
+            "1x Огромная ядовитая железа" ------ Мощное противоядие
         };
     elseif rank > 329 and rank < 350 then -- 330-349
         shouldCraft = {
-            "Heavy Netherweave Bandage",
-            "Heavy Runecloth Bandage",
-            "Powerful Anti-Venom"
+            "Плотные бинты из ткани Пустоты",
+            "Плотные бинты из рунической ткани",
+            "Мощное противоядие"
         };
         shouldCraftRecipe = {
-            "2x Netherweave Cloth", -- Heavy Netherweave Bandage
-            "2x Runecloth", ---------- Heavy Runecloth Bandage
-            "1x Huge Venom Sac" ------ Powerful Anti-Venom
+            "2x Ткань Пустоты", -- Плотные бинты из ткани Пустоты
+            "2x Руническая ткань", ---------- Плотные бинты из рунической ткани
+            "1x Огромная ядовитая железа" ------ Мощное противоядие
         };
     elseif rank > 349 and rank < 375 then -- 350-374
         shouldCraft = {
-            "Frostweave Bandage",
-            "Heavy Netherweave Bandage"
+            "Бинты из ледяной ткани",
+            "Плотные бинты из ткани Пустоты"
         };
         shouldCraftRecipe = {
-            "1x Frostweave Cloth", -- Frostweave Bandage
-            "2x Netherweave Cloth" -- Heavy Netherweave Bandage
+            "1x Ледяная ткань", -- Бинты из ледяной ткани
+            "2x Ткань Пустоты" -- Плотные бинты из ткани Пустоты
         };
     elseif rank > 374 and rank < 400 then -- 375-399
-        shouldCraft = {"Frostweave Bandage"};
-        shouldCraftRecipe = {"1x Frostweave Cloth"};
+        shouldCraft = {"Бинты из ледяной ткани"};
+        shouldCraftRecipe = {"1x Ледяная ткань"};
     elseif rank > 399 and rank < 450 then -- 400-449
-        shouldCraft = {"Heavy Frostweave Bandage"};
-        shouldCraftRecipe = {"2x Frostweave Cloth"};
+        shouldCraft = {"Плотные бинты из ледяной ткани"};
+        shouldCraftRecipe = {"2x Ледяная ткань"};
     end
     return shouldCraft, shouldCraftRecipe
 end

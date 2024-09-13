@@ -100,194 +100,194 @@ addonTable.getEngineeringCurrentSkillLevelRecipeToCraft = function(rank)
         shouldCraft = {"Трещащий бронзовый механизм"};
         shouldCraftRecipe = {"2x Бронзовый слиток, 1x Шерсть"};
     elseif rank > 149 and rank < 155 then -- 150-154
-        shouldCraft = {"Bronze Framework"};
-        shouldCraftRecipe = {"2x Бронзовый слиток, 1x Medium Leather, 1x Шерсть"};
+        shouldCraft = {"Бронзовый каркас"};
+        shouldCraftRecipe = {"2x Бронзовый слиток, 1x Жесткая кожа, 1x Шерсть"};
     elseif rank > 154 and rank < 175 then -- 155-174
         shouldCraft = {
-            "Explosive Sheep",
-            "Gold Power Core",
-            "Iron Strut"
+            "Взрывоопасная овца",
+            "Золотое силовое ядро",
+            "Железная балка"
         };
         shouldCraftRecipe = {
-            "2x Тяжелое взрывчатое вещество, 1x Трещащий бронзовый механизм, 1x Bronze Framework, 2x Шерсть", -- Explosive Sheep
-            "1x Gold Bar", ----------------------------------------------------------------------------- Gold Power Core
-            "2x Iron Bar" ------------------------------------------------------------------------------ Iron Strut
+            "2x Тяжелое взрывчатое вещество, 1x Трещащий бронзовый механизм, 1x Бронзовый каркас, 2x Шерсть", -- Взрывоопасная овца
+            "1x Золотой слиток", ----------------------------------------------------------------------------- Золотое силовое ядро
+            "2x Железный слиток" ------------------------------------------------------------------------------ Железная балка
         };
     elseif rank > 174 and rank < 176 then -- 175
         shouldCraft = {
-            "Gyromatic Micro-Adjustor",
-            "Solid Blasting Powder"
+            "Шлицевой гироинструмент",
+            "Твердое взрывчатое вещество"
         };
         shouldCraftRecipe = {
-            "4x Steel Bar", --- Gyromatic Micro-Adjustor
-            "2x Solid Stone" -- Solid Blasting Powder
+            "4x Стальной слиток", --- Шлицевой гироинструмент
+            "2x Твердый камень" -- Твердое взрывчатое вещество
         };
     elseif rank > 175 and rank < 195 then -- 176-194
         shouldCraft = {
-            "Solid Blasting Powder",
-            "Gyromatic Micro-Adjustor"
+            "Твердое взрывчатое вещество",
+            "Шлицевой гироинструмент"
         };
         shouldCraftRecipe = {
-            "2x Solid Stone", -- Solid Blasting Powder
-            "4x Steel Bar" ----- Gyromatic Micro-Adjustor
+            "2x Твердый камень", -- Твердое взрывчатое вещество
+            "4x Стальной слиток" ----- Шлицевой гироинструмент
         };
     elseif rank > 194 and rank < 200 then -- 195-199
-        shouldCraft = {"Mithril Tube"};
-        shouldCraftRecipe = {"3x Mithril Bar"};
+        shouldCraft = {"Мифриловая труба"};
+        shouldCraftRecipe = {"3x Мифриловый слиток"};
     elseif rank > 199 and rank < 210 then -- 200-209
             shouldCraft = {
-                "Unstable Trigger",
-                "Mithril Tube"
+                "Нестабильное пусковое устройство",
+                "Мифриловая труба"
             };
             shouldCraftRecipe = {
-                "1x Mithril Bar, 1x Mageweave Cloth, 1x Solid Blasting Powder", -- Unstable Trigger
-                "3x Mithril Bar" ------------------------------------------------- Mithril Tube
+                "1x Мифриловый слиток, 1x Магическая ткань, 1x Твердое взрывчатое вещество", -- Нестабильное пусковое устройство
+                "3x Мифриловый слиток" ------------------------------------------------- Мифриловая труба
             };
     elseif rank > 209 and rank < 225 then -- 210-224
-        shouldCraft = {"Hi-Impact Mithril Slugs"};
-        shouldCraftRecipe = {"1x Mithril Bar, 1x Solid Blasting Powder"};
+        shouldCraft = {"Бронебойные мифриловые пули"};
+        shouldCraftRecipe = {"1x Мифриловый слиток, 1x Твердое взрывчатое вещество"};
     elseif rank > 224 and rank < 235 then -- 225-234
-        shouldCraft = {"Mithril Casing"};
-        shouldCraftRecipe = {"3x Mithril Bar"};
+        shouldCraft = {"Мифриловая обшивка"};
+        shouldCraftRecipe = {"3x Мифриловый слиток"};
     elseif rank > 234 and rank < 245 then -- 235-244
         shouldCraft = {
-            "Hi-Explosive Bomb",
-            "Mithril Casing"
+            "Фугасная бомба",
+            "Мифриловая обшивка"
         };
         shouldCraftRecipe = {
-            "2x Mithril Casing, 1x Unstable Trigger, 2x Solid Blasting Powder", -- Hi-Explosive Bomb
-            "3x Mithril Bar" ----------------------------------------------------- Mithril Casing
+            "2x Мифриловая обшивка, 1x Нестабильное пусковое устройство, 2x Твердое взрывчатое вещество", -- Фугасная бомба
+            "3x Мифриловый слиток" ----------------------------------------------------- Мифриловая обшивка
         };
     elseif rank > 244 and rank < 250 then -- 245-249
         shouldCraft = {
-            "Mithril Gyro-Shot",
-            "Hi-Explosive Bomb"
+            "Мифриловый гиро-патрон",
+            "Фугасная бомба"
         };
         shouldCraftRecipe = {
-            "2x Mithril Bar, 2x Solid Blasting Powder", ------------------------- Mithril Gyro-Shot
-            "2x Mithril Casing, 1x Unstable Trigger, 2x Solid Blasting Powder" -- Hi-Explosive Bomb
+            "2x Мифриловый слиток, 2x Твердое взрывчатое вещество", ------------------------- Мифриловый гиро-патрон
+            "2x Мифриловая обшивка, 1x Нестабильное пусковое устройство, 2x Твердое взрывчатое вещество" -- Фугасная бомба
         };
     elseif rank > 249 and rank < 260 then -- 250-259
         shouldCraft = {
-            "Dense Blasting Powder",
-            "Mithril Gyro-Shot"
+            "Концентрированное взрывчатое вещество",
+            "Мифриловый гиро-патрон"
         };
         shouldCraftRecipe = {
-            "2x Dense Stone", --------------------------- Dense Blasting Powder
-            "2x Mithril Bar, 2x Solid Blasting Powder" -- Mithril Gyro-Shot
+            "2x Массивный камень", --------------------------- Концентрированное взрывчатое вещество
+            "2x Мифриловый слиток, 2x Твердое взрывчатое вещество" -- Мифриловый гиро-патрон
         };
     elseif rank > 259 and rank < 280 then -- 260-279
-        shouldCraft = {"Thorium Widget"};
-        shouldCraftRecipe = {"3x Thorium Bar, 1x Runecloth"};
+        shouldCraft = {"Ториевое устройство"};
+        shouldCraftRecipe = {"3x Ториевый слиток, 1x Руническая ткань"};
     elseif rank > 279 and rank < 285 then -- 280-284
-        shouldCraft = {"Thorium Tube"};
-        shouldCraftRecipe = {"6x Thorium Bar"};
+        shouldCraft = {"Ториевая труба"};
+        shouldCraftRecipe = {"6x Ториевый слиток"};
     elseif rank > 284 and rank < 300 then -- 285-299
-        shouldCraft = {"Thorium Shells"};
-        shouldCraftRecipe = {"2x Thorium Bar, 1x Dense Blasting Powder"};
+        shouldCraft = {"Ториевые патроны"};
+        shouldCraftRecipe = {"2x Ториевый слиток, 1x Концентрированное взрывчатое вещество"};
     elseif rank > 299 and rank < 305 then -- 300-304
         shouldCraft = {
-            "Handful of Fel Iron Bolts",
-            "Elemental Blasting Powder",
-            "Thorium Shells"
+            "Горсть винтов из оскверненного железа",
+            "Взрывчатое вещество стихий",
+            "Ториевые патроны"
         };
         shouldCraftRecipe = {
-            "1x Fel Iron Bar", -------------------------- Handful of Fel Iron Bolts
-            "1x Mote of Fire, 2x Mote of Earth", -------- Elemental Blasting Powder
-            "2x Thorium Bar, 1x Dense Blasting Powder" -- Thorium Shells
+            "1x Горсть винтов из оскверненного железа", -------------------------- Горсть винтов из оскверненного железа
+            "1x Частица огня, 2x Частица земли", -------- Взрывчатое вещество стихий
+            "2x Ториевый слиток, 1x Концентрированное взрывчатое вещество" -- Ториевые патроны
         };
     elseif rank > 304 and rank < 310 then -- 300-309
         shouldCraft = {
-            "Handful of Fel Iron Bolts",
-            "Elemental Blasting Powder"
+            "Горсть винтов из оскверненного железа",
+            "Взрывчатое вещество стихий"
         };
         shouldCraftRecipe = {
-            "1x Fel Iron Bar", ------------------- Handful of Fel Iron Bolts
-            "1x Mote of Fire, 2x Mote of Earth" -- Elemental Blasting Powder
+            "1x Горсть винтов из оскверненного железа", ------------------- Горсть винтов из оскверненного железа
+            "1x Частица огня, 2x Частица земли" -- Взрывчатое вещество стихий
         };
     elseif rank > 309 and rank < 320 then -- 310-319
             shouldCraft = {
-                "Fel Iron Casing",
-                "Elemental Blasting Powder"
+                "Обшивка из оскверненного железа",
+                "Взрывчатое вещество стихий"
             };
             shouldCraftRecipe = {
-                "3x Fel Iron Bar", -------------------- Fel Iron Casing
-                "1x Mote of Fire, 2x Mote of Earth", -- Elemental Blasting Powder
+                "3x Горсть винтов из оскверненного железа", -------------------- Обшивка из оскверненного железа
+                "1x Частица огня, 2x Частица земли", -- Взрывчатое вещество стихий
             };
     elseif rank > 319 and rank < 325 then -- 320-324
             shouldCraft = {
-                "Fel Iron Bomb",
-                "Fel Iron Musket"
+                "Бомба из оскверненного железа",
+                "Мушкет из оскверненного железа"
             };
             shouldCraftRecipe = {
-                "1x Fel Iron Casing, 2x Handful of Fel Iron Bolts, 1x Elemental Blasting Powder", -- Fel Iron Bomb
-                "1x Heavy Stock, 3x Fel Iron Casing, 6x Handful of Fel Iron Bolts" ----------------- Fel Iron Musket
+                "1x Обшивка из оскверненного железа, 2x Горсть винтов из оскверненного железа, 1x Взрывчатое вещество стихий", -- Бомба из оскверненного железа
+                "1x Прочный приклад, 3x Обшивка из оскверненного железа, 6x Горсть винтов из оскверненного железа" ----------------- Мушкет из оскверненного железа
             };
     elseif rank > 324 and rank < 335 then -- 325-334
-        shouldCraft = {"Adamantite Grenade"};
-        shouldCraftRecipe = {"4x Adamantite Bar, 1x Elemental Blasting Powder, 2x Handful of Fel Iron Bolts"};
+        shouldCraft = {"Адамантитовая граната"};
+        shouldCraftRecipe = {"4x Адамантитовый слиток, 1x Взрывчатое вещество стихий, 2x Горсть винтов из оскверненного железа"};
         elseif rank > 334 and rank < 340 then -- 335-339
             shouldCraft = {
-                "White Smoke Flare",
-                "Adamantite Grenade"
+                "Белая дымовая сигнальная ракета",
+                "Адамантитовая граната"
             };
             shouldCraftRecipe = {
-                "1x Elemental Blasting Powder, 1x Netherweave Cloth", ---------------------------- White Smoke Flare
-                "4x Adamantite Bar, 1x Elemental Blasting Powder, 2x Handful of Fel Iron Bolts" -- Adamantite Grenade
+                "1x Взрывчатое вещество стихий, 1x Ткань Пустоты", ---------------------------- Белая дымовая сигнальная ракета
+                "4x Адамантитовый слиток, 1x Взрывчатое вещество стихий, 2x Горсть винтов из оскверненного железа" -- Адамантитовая граната
             };
     elseif rank > 339 and rank < 350 then -- 340-349
         shouldCraft = {
-            "Felsteel Stabilizer",
-            "White Smoke Flare"
+            "Стабилизатор из оскверненной стали",
+            "Белая дымовая сигнальная ракета"
         };
         shouldCraftRecipe = {
-            "2x Felsteel Bar", ------------------------------------ Felsteel Stabilizer
-            "1x Elemental Blasting Powder, 1x Netherweave Cloth" -- White Smoke Flare
+            "2x Горсть винтов из оскверненного железа", ------------------------------------ Felsteel Stabilizer
+            "1x Взрывчатое вещество стихий, 1x Ткань Пустоты" -- Белая дымовая сигнальная ракета
         };
     elseif rank > 349 and rank < 370 then -- 350-369
-        shouldCraft = {"Handful of Cobalt Bolts"};
-        shouldCraftRecipe = {"2x Cobalt Bar"};
+        shouldCraft = {"Пригоршня кобальтовых болтов"};
+        shouldCraftRecipe = {"2x Слиток кобальта"};
     elseif rank > 369 and rank < 375 then -- 370-374
-        shouldCraft = {"Volatile Blasting Trigger"};
-        shouldCraftRecipe = {"3x Cobalt Bar, 1x Crystallized Water"};
+        shouldCraft = {"Неустойчивый детонатор"};
+        shouldCraftRecipe = {"3x Слиток кобальта, 1x Кристаллизованная вода"};
     elseif rank > 374 and rank < 385 then -- 375-384
         shouldCraft = {
-            "Overcharged Capacitor",
-            "Hammer Pick",
-            "Bladed Pickaxe"
+            "Перегруженный конденсатор",
+            "Кирка-молот",
+            "Заостренная кирка"
         };
         shouldCraftRecipe = {
-            "4x Cobalt Bar, 1x Crystallized Earth", -- Overcharged Capacitor
-            "5x Cobalt Bar", ------------------------- Hammer Pick
-            "5x Cobalt Bar" -------------------------- Bladed Pickaxe
+            "4x Слиток кобальта, 1x Кристаллизованная земля", -- Перегруженный конденсатор
+            "5x Слиток кобальта", ------------------------- Кирка-молот
+            "5x Слиток кобальта" -------------------------- Заостренная кирка
         };
     elseif rank > 384 and rank < 390 then -- 385-389
-        shouldCraft = {"Explosive Decoy"};
-        shouldCraftRecipe = {"1x Frostweave Cloth, 3x Volatile Blasting Trigger"};
+        shouldCraft = {"Взрывчатая приманка"};
+        shouldCraftRecipe = {"1x Ледяная ткань, 3x Неустойчивый детонатор"};
     elseif rank > 389 and rank < 400 then -- 390-399
-        shouldCraft = {"Froststeel Tube"};
-        shouldCraftRecipe = {"8x Cobalt Bar, 1x Crystallized Water"};
+        shouldCraft = {"Труба из ледяной стали"};
+        shouldCraftRecipe = {"8x Слиток кобальта, 1x Кристаллизованная вода"};
     elseif rank > 399 and rank < 405 then -- 400-404
-        shouldCraft = {"Diamond-cut Refractor Scope"};
-        shouldCraftRecipe = {"1x Froststeel Tube, 2x Handful of Cobalt Bolts"};
+        shouldCraft = {"Рефракторный прицел с бриллиантовой огранкой"};
+        shouldCraftRecipe = {"1x Труба из ледяной стали, 2x Пригоршня кобальтовых болтов"};
     elseif rank > 404 and rank < 410 then -- 405-409
-        shouldCraft = {"Box of Bombs"};
-        shouldCraftRecipe = {"5x Saronite Bar, 1x Volatile Blasting Trigger"};
+        shouldCraft = {"Ящик бомб"};
+        shouldCraftRecipe = {"5x Слиток саронита, 1x Неустойчивый детонатор"};
     elseif rank > 409 and rank < 415 then -- 410-414
-        shouldCraft = {"Mammoth Cutters"};
-        shouldCraftRecipe = {"1x Saronite Bar, 1x Volatile Blasting Trigger"};
+        shouldCraft = {"Мамонтобои"};
+        shouldCraftRecipe = {"1x Слиток саронита, 1x Неустойчивый детонатор"};
     elseif rank > 414 and rank < 420 then -- 415-419
-        shouldCraft = {"Saronite Razorheads"};
-        shouldCraftRecipe = {"2x Saronite Bar"};
+        shouldCraft = {"Саронитовые острейшие стрелы"};
+        shouldCraftRecipe = {"2x Слиток саронита"};
     elseif rank > 419 and rank < 430 then -- 420-429
-        shouldCraft = {"Mechanized Snow Goggles"};
-        shouldCraftRecipe = {"8x Saronite Bar, 2x Borean Leather, 1x Eternal Shadow"};
+        shouldCraft = {"Механизированные снегозащитные очки"};
+        shouldCraftRecipe = {"8x Слиток саронита, 2x Борейская кожа, 1x Извечная тьма"};
     elseif rank > 429 and rank < 435 then -- 430-434
-        shouldCraft = {"Noise Machine"};
-        shouldCraftRecipe = {"2x Froststeel Tube, 2x Overcharged Capacitor, 8x Handful of Cobalt Bolts"};
+        shouldCraft = {"Генератор шума"};
+        shouldCraftRecipe = {"2x Труба из ледяной стали, 2x Перегруженный конденсатор, 8x Пригоршня кобальтовых болтов"};
     elseif rank > 434 and rank < 450 then -- 435-449
-        shouldCraft = {"Gnomish Army Knife"};
-        shouldCraftRecipe = {"10x Saronite Bar, 1x Skinning Knife, 1x Minning Pick, 1x Blacksmithing Hammer"};
+        shouldCraft = {"Гномский армейский нож"};
+        shouldCraftRecipe = {"10x Слиток саронита, 1x Нож для снятия шкур, 1x Шахтерская кирка, 1x Кузнечный молот"};
     end
     return shouldCraft, shouldCraftRecipe
 end
