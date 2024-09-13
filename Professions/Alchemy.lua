@@ -4,151 +4,151 @@ local shouldCraft, shouldCraftRecipe;
 
 addonTable.getAlchemyCurrentSkillLevelRecipeToCraft = function(rank)
     if rank > 0 and rank < 60 then -- 1-59
-        shouldCraft = {"Minor Healing Potion"};
-        shouldCraftRecipe = {"1x Peacebloom, 1x Sliverleaf, 1x Empty Vial"};
+        shouldCraft = {"Крохотный флакон с лечебным зельем"};
+        shouldCraftRecipe = {"1x Мироцвет, 1x Сребролист, 1x Пустая колба"};
     elseif rank > 59 and rank < 106 then -- 60-105
-        shouldCraft = {"Lesser Healing Potion"};
-        shouldCraftRecipe = {"1x Minor Healing Potion, 1x Briarthorn"};
+        shouldCraft = {"Маленький флакон с лечебным зельем"};
+        shouldCraftRecipe = {"1x Крохотный флакон с лечебным зельем, 1x Остротерн"};
     elseif rank > 105 and rank < 110 then -- 106-109
-        shouldCraft = {"Elixir of Wisdom"};
-        shouldCraftRecipe = {"1x Mageroyal, 1x Briarthorn, 1x Empty Vial"};
+        shouldCraft = {"Эликсир мудрости"};
+        shouldCraftRecipe = {"1x Магороза, 1x Остротерн, 1x Пустая колба"};
     elseif rank > 109 and rank < 140 then -- 111-139
-        shouldCraft = {"Healing Potion"};
-        shouldCraftRecipe = {"1x Bruiseweed, 1x Briarthorn, 1x Leaded Vial"};
+        shouldCraft = {"Лечебное зелье"};
+        shouldCraftRecipe = {"1x Синячник, 1x Остротерн, 1x Освинцованная колба"};
     elseif rank > 139 and rank < 155 then -- 141-154
-        shouldCraft = {"Lesser Mana Potion"};
-        shouldCraftRecipe = {"1x Mageroyal, 1x Stranglekelp, 1x Empty Vial"};
+        shouldCraft = {"Маленький флакон с зельем маны"};
+        shouldCraftRecipe = {"1x Магороза, 1x Удавник, 1x Пустая колба"};
     elseif rank > 154 and rank < 185 then -- 155-184
-        shouldCraft = {"Greater Healing Potion"};
-        shouldCraftRecipe = {"1x Liferoot, 1x Kingsblood, 1x Leaded Vial"};
+        shouldCraft = {"Сильное лечебное зелье"};
+        shouldCraftRecipe = {"1x Корень жизни, 1x Королевская кровь, 1x Освинцованная колба"};
     elseif rank > 184 and rank < 205 then -- 185-204
         shouldCraft = {
-            "Elixir of Agility",
-            "Elixir of Fortitude"
+            "Эликсир ловкости",
+            "Эликсир стойкости"
         };
         shouldCraftRecipe = {
-            "1x Stranglekelp, 1x Goldthorn, 1x Leaded Vial", ---- Elixir of Agility
-            "1x Wild Steelbloom, 1x Goldthorn, 1x Leaded Vial" -- Elixir of Fortitude
+            "1x Удавник, 1x Златошип, 1x Освинцованная колба", ---- Эликсир ловкости
+            "1x Дикий сталецвет, 1x Златошип, 1x Освинцованная колба" -- Эликсир стойкости
         };
     elseif rank > 204 and rank < 215 then -- 205-214
-        shouldCraft = {"Elixir of Greater Defense"};
-        shouldCraftRecipe = {"1x Wild Steelbloom, 1x Goldthorn, 1x Leaded Vial"};
+        shouldCraft = {"Сильный эликсир защиты"};
+        shouldCraftRecipe = {"1x Дикий сталецвет, 1x Златошип, 1x Освинцованная колба"};
     elseif rank > 214 and rank < 230 then -- 215-229
-        shouldCraft = {"Superior Healing Potion"};
-        shouldCraftRecipe = {"1x Sungrass, 1x Khadgar's Whisker, 1x Crystal Vial"};
+        shouldCraft = {"Мощное лечебное зелье"};
+        shouldCraftRecipe = {"1x Солнечник, 1x Кадгаров ус, 1x Хрустальная колба"};
     elseif rank > 229 and rank < 231 then -- 230
-        shouldCraft = {"Philosopher's Stone"};
-        shouldCraftRecipe = {"4x Iron Bar, 1x Black Vitriol, 4x Purple Lotus, 4x Firebloom"};
+        shouldCraft = {"Философский камень"};
+        shouldCraftRecipe = {"4x Железный слиток, 1x Черный купорос, 4x Лиловый лотос, 4x Огнецвет"};
     elseif rank > 230 and rank < 250 then -- 231-249
-        shouldCraft = {"Elixir of Detect Undead"};
-        shouldCraftRecipe = {"1x Arthas' Tears, 1x Crystal Vial"};
+        shouldCraft = {"Эликсир обнаружения нежити"};
+        shouldCraftRecipe = {"1x Слезы Артаса, 1x Хрустальная колба"};
     elseif rank > 249 and rank < 265 then -- 250-264
-        shouldCraft = {"Elixir of Greater Agility"};
-        shouldCraftRecipe = {"1x Sungrass, 1x Goldthorn, 1x Crystal Vial"};
+        shouldCraft = {"Сильный эликсир ловкости"};
+        shouldCraftRecipe = {"1x Солнечник, 1x Златошип, 1x Хрустальная колба"};
     elseif rank > 264 and rank < 285 then -- 265-284
-        shouldCraft = {"Superior Mana Potion"};
-        shouldCraftRecipe = {"2x Sungrass, 2x Blindweed, 1x Crystal Vial"};
+        shouldCraft = {"Мощное зелье маны"};
+        shouldCraftRecipe = {"2x Солнечник, 2x Пастушья сумка, 1x Хрустальная колба"};
     elseif rank > 284 and rank < 300 then -- 285-299
-        shouldCraft = {"Major Healing Potion"};
-        shouldCraftRecipe = {"2x Golden Sansam, 1x Mountain Silversage, 1x Crystal vial"};
+        shouldCraft = {"Сильнейшее лечебное зелье"};
+        shouldCraftRecipe = {"2x Золотой сансам, 1x Горный серебряный шалфей, 1x Хрустальная колба"};
     elseif rank > 299 and rank < 310 then -- 300-309
         shouldCraft = {
-            "Volatile Healing Potion",
-            "Adept's Elixir"
+            "Флакон с летучим лечебным зельем",
+            "Эликсир адепта"
         };
         shouldCraftRecipe = {
-            "1x Golden Sansam, 1x Felweed, 1x Imbued Vial", -- Volatile Healing Potion
-            "1x Dreamfoil, 1x Felweed, 1x Imbued Vial" ------- Adept's Elixir
+            "1x Золотой сансам, 1x Сквернопля, 1x Укрепленная колба", -- Флакон с летучим лечебным зельем
+            "1x Снолист, 1x Сквернопля, 1x Укрепленная колба" ------- Эликсир адепта
         };
     elseif rank > 309 and rank < 325 then -- 310-324
-        shouldCraft = {"Elixir of Healing Power"};
-        shouldCraftRecipe = {"1x Golden Sansam, 1x Dreaming Glory, 1x Imbued Vial"};
+        shouldCraft = {"Эликсир целительной силы"};
+        shouldCraftRecipe = {"1x Золотой сансам, 1x Сияние грез, 1x Укрепленная колба"};
     elseif rank > 324 and rank < 335 then -- 325-334
-        shouldCraft = {"Mad Alchemist's Potion"};
-        shouldCraftRecipe = {"2x Ragveil, 1x Crystal Vial"};
+        shouldCraft = {"Зелье безумного алхимика"};
+        shouldCraftRecipe = {"2x Кисейница, 1x Хрустальная колба"};
     elseif rank > 334 and rank < 340 then -- 335-339
-        shouldCraft = {"Super Healing Potion"};
-        shouldCraftRecipe = {"2x Netherbloom, 1x Felweed, 1x Imbued Vial"};
+        shouldCraft = {"Гигантский флакон с лечебным зельем"};
+        shouldCraftRecipe = {"2x Пустоцвет, 1x Сквернопля, 1x Укрепленная колба"};
     elseif rank > 339 and rank < 350 then -- 340-349
-        shouldCraft = {"Super Mana Potion"};
-        shouldCraftRecipe = {"2x Dreaming Glory, 1x Felweed, 1x Imbued Vial"};
+        shouldCraft = {"Гигантский флакон с зельем маны"};
+        shouldCraftRecipe = {"2x Сияние грез, 1x Сквернопля, 1x Укрепленная колба"};
     elseif rank > 349 and rank < 360 then -- 350-359
-        shouldCraft = {"Resurgent Healing Potion"};
-        shouldCraftRecipe = {"2x Goldclover, 1x Imbued Vial"};
+        shouldCraft = {"Флакон с бодрящим лечебным зельем"};
+        shouldCraftRecipe = {"2x Золотой клевер, 1x Укрепленная колба"};
     elseif rank > 359 and rank < 365 then -- 360-364
-        shouldCraft = {"Icy Mana Potion"};
-        shouldCraftRecipe = {"2x Talandra's Rose, 1x Imbued Vial"};
+        shouldCraft = {"Флакон с ледяным зельем маны"};
+        shouldCraftRecipe = {"2x Роза Таландры, 1x Укрепленная колба"};
     elseif rank > 364 and rank < 375 then -- 365-374
-        shouldCraft = {"Spellpower Elixir"};
-        shouldCraftRecipe = {"1x Goldclover, 1x Tiger Lily, 1x Imbued Vial"};
+        shouldCraft = {"Эликсир силы заклинаний"};
+        shouldCraftRecipe = {"1x Золотой клевер, 1x Тигровая лилия, 1x Укрепленная колба"};
     elseif rank > 374 and rank < 380 then -- 375-379
-        shouldCraft = {"Pygmy Oil"};
-        shouldCraftRecipe = {"1x Pygmy Suckerfish"};
+        shouldCraft = {"Карломасло"};
+        shouldCraftRecipe = {"1x Карликовый сосокунь"};
     elseif rank > 379 and rank < 385 then -- 380-384
-        shouldCraft = {"Potion of Nightmares"};
-        shouldCraftRecipe = {"1x Goldclover, 2x Talandra's Rose, 1x Imbued Vial"};
+        shouldCraft = {"Зелье ночных кошмаров"};
+        shouldCraftRecipe = {"1x Золотой клевер, 2x Роза Таландры, 1x Укрепленная колба"};
     elseif rank > 384 and rank < 395 then -- 385-394
-        shouldCraft = {"Elixir of Mighty Strength"};
-        shouldCraftRecipe = {"2x Tiger Lily, 1x Imbued Vial"};
+        shouldCraft = {"Мощный эликсир силы"};
+        shouldCraftRecipe = {"2x Тигровая лилия, 1x Укрепленная колба"};
     elseif rank > 394 and rank < 400 then -- 395-399
-        shouldCraft = {"Elixir of Mighty Agility"};
-        shouldCraftRecipe = {"2x Goldcover, 2x Adder's Tongue, 1x Imbued Vial"};
+        shouldCraft = {"Мощный эликсир ловкости"};
+        shouldCraftRecipe = {"2x Золотой клевер, 2x Язык аспида, 1x Укрепленная колба"};
     elseif rank > 399 and rank < 405 then -- 400-404
         shouldCraft = {
-            "Potion of Speed",
-            "Elixir of Mighty Agility"
+            "Зелье быстроты",
+            "Мощный эликсир ловкости"
         };
         shouldCraftRecipe = {
-            "2x Adder's Tongue, 1x Pygmy Oil, 1x Imbued Vial", -- Potion of Speed
-            "2x Goldcover, 2x Adder's Tongue, 1x Imbued Vial"  -- Elixir of Mighty Agility
+            "2x Язык аспида, 1x Карломасло, 1x Укрепленная колба", -- Зелье быстроты
+            "2x Золотой клевер, 2x Язык аспида, 1x Укрепленная колба"  -- Мощный эликсир ловкости
         };
     elseif rank > 404 and rank < 415 then -- 405-414
         shouldCraft = {
-            "Potion of Speed",
-            "Indestructible Potion"
+            "Зелье быстроты",
+            "Зелье несокрушимости"
         };
         shouldCraftRecipe = {
-            "2x Adder's Tongue, 1x Pygmy Oil, 1x Imbued Vial", -- Potion of Speed
-            "2x Icethorn, 1x Imbued Vial" ----------------------- Indestructible Potion
+            "2x Язык аспида, 1x Карломасло, 1x Укрепленная колба", -- Зелье быстроты
+            "2x Ледошип, 1x Укрепленная колба" ----------------------- Зелье несокрушимости
         };
     elseif rank > 414 and rank < 425 then -- 415-424
-        shouldCraft = {"Runic Mana Potion"};
-        shouldCraftRecipe = {"1x Goldcover, 2x Lichbloom, 1x Imbued Vial"};
+        shouldCraft = {"Рунический флакон с зельем маны"};
+        shouldCraftRecipe = {"1x Золотой клевер, 2x Личецвет, 1x Укрепленная колба"};
     elseif rank > 424 and rank < 430 then -- 425-429
-        shouldCraft = {"Transmute: Titanium"};
-        shouldCraftRecipe = {"8x Saronite Bar"};
+        shouldCraft = {"Трансмутация: титан"};
+        shouldCraftRecipe = {"8x Слиток саронита"};
     elseif rank > 429 and rank < 435 then -- 430-434
-        shouldCraft = {"Transmute: Earthsiege Diamond"};
-        shouldCraftRecipe = {"1x Dark Jade, 1x Huge Citrine, 1x Eternal Fire"};
+        shouldCraft = {"Трансмутация: алмаз землеправителя"};
+        shouldCraftRecipe = {"1x Темный нефрит, 1x Огромный цитрин, 1x Извечный огонь"};
     elseif rank > 434 and rank < 440 then -- 435-439
         shouldCraft = {
-            "Transmute: Skyflare Diamond",
-            "Flask of Endless Rage",
-            "Flask of Pure Mojo",
-            "Flask of Stoneblood",
-            "Flask of the Frost Wyrm"
+            "Трансмутация алмаза небесного сияния",
+            "Настой бесконечной ярости",
+            "Настой чистого колдунства",
+            "Настой каменной крови",
+            "Настой ледяного змея"
         };
         shouldCraftRecipe = {
-            "1x Bloodstone, 1x Chalcedony, 1x Eternal Air", --------------------------- Transmute: Skyflare Diamond
-            "7x Lich Bloom, 3x GoldClover, 1x Frost Lotus, 1x Enchanted Vial", -------- Flask of Endless Rage
-            "7x Icethorn, 3x Pygmy Oil, 1x Frost Lotus, 1x Enchanted Vial", ----------- Flask of Pure Mojo
-            "7x Lichbloom, 3x Crystallized Life, 1x Frost Lotus, 1x Enchanted Vial", -- Flask of Stoneblood
-            "5x Icethorn, 5x Lichbloom, 1x Frost Lotus, 1x Enchanted Vial" ------------ Flask of the Frost Wyrm
+            "1x Кровавый камень, 1x Кальцедоний, 1x Извечный воздух", --------------------------- Трансмутация алмаза небесного сияния
+            "7x Личецвет, 3x Золотой клевер, 1x Северный лотос, 1x Зачарованная колба", -------- Настой бесконечной ярости
+            "7x Ледошип, 3x Карломасло, 1x Северный лотос, 1x Зачарованная колба", ----------- Настой чистого колдунства
+            "7x Личецвет, 3x Кристаллизованная жизнь, 1x Северный лотос, 1x Зачарованная колба", -- Настой каменной крови
+            "5x Ледошип, 5x Личецвет, 1x Северный лотос, 1x Зачарованная колба" ------------ Настой ледяного змея
         };
     elseif rank > 439 and rank < 450 then -- 440-449
         shouldCraft = {
-            "Flask of Endless Rage",
-            "Flask of Pure Mojo",
-            "Flask of Stoneblood",
-            "Flask of the Frost Wyrm",
-            "Transmute: Skyflare Diamond"
+            "Настой бесконечной ярости",
+            "Настой чистого колдунства",
+            "Настой каменной крови",
+            "Настой ледяного змея",
+            "Трансмутация алмаза небесного сияния"
         };
         shouldCraftRecipe = {
-            "7x Lich Bloom, 3x GoldClover, 1x Frost Lotus, 1x Enchanted Vial", -------- Flask of Endless Rage
-            "7x Icethorn, 3x Pygmy Oil, 1x Frost Lotus, 1x Enchanted Vial", ----------- Flask of Pure Mojo
-            "7x Lichbloom, 3x Crystallized Life, 1x Frost Lotus, 1x Enchanted Vial", -- Flask of Stoneblood
-            "5x Icethorn, 5x Lichbloom, 1x Frost Lotus, 1x Enchanted Vial",------------ Flask of the Frost Wyrm
-            "1x Bloodstone, 1x Chalcedony, 1x Eternal Air" ---------------------------- Transmute: Skyflare Diamond
+            "7x Личецвет, 3x Золотой клевер, 1x Северный лотос, 1x Зачарованная колба", -------- Настой бесконечной ярости
+            "7x Ледошип, 3x Карломасло, 1x Северный лотос, 1x Зачарованная колба", ----------- Настой чистого колдунства
+            "7x Личецвет, 3x Кристаллизованная жизнь, 1x Северный лотос, 1x Зачарованная колба", -- Настой каменной крови
+            "5x Ледошип, 5x Личецвет, 1x Северный лотос, 1x Зачарованная колба",------------ Настой ледяного змея
+            "1x Кровавый камень, 1x Кальцедоний, 1x Извечный воздух" ---------------------------- Трансмутация алмаза небесного сияния
         };
     end
     return shouldCraft, shouldCraftRecipe

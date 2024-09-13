@@ -69,11 +69,11 @@ addonTable.getFirstAidCurrentSkillLevelRecipeToCraft = function(rank)
         shouldCraftRecipe = {"2x Магическая ткань"};
     elseif rank > 259 and rank < 290 then -- 260-289
         shouldCraft = {
-            "Руническая ткань Bandage",
-            "Бинты из рунической ткани"
+            "Бинты из рунической ткани",
+            "Плотные бинты из рунической ткани"
         };
         shouldCraftRecipe = {
-            "1x Руническая ткань", ------- Руническая ткань Bandage
+            "1x Руническая ткань", ------- Бинты из рунической ткани
             "2x Магическая ткань" -- Бинты из рунической ткани
         };
     elseif rank > 289 and rank < 300 then -- 290-299
