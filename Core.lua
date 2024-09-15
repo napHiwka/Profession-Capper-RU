@@ -1,234 +1,184 @@
 -- Variables
-local addonName, addonTable = ...;
+local addonName, addonTable = ...
 
-local tradeSkillName, rank, maxLevel; -- variables for currently opened profession frame
-local isLinked, name; -- variables to know if you opened your own profession frame or if it's a link
+-- Current profession frame details
+local tradeSkillName, rank, maxLevel
+local isLinked, name -- Determines if it's your own profession frame or a link
 
-local shouldCraft = {"unknown"}; -- varible that will show which recipe one should craft based on current skill level
-local shouldCraftRecipe = {"unknown"}; -- variable that will hold the material needed to craft <shouldCraft>
-local craftRecipeOptionsIndex = 1; -- variavle to define index of recipes
+-- Crafting suggestions
+local shouldCraft = { "unknown" } -- Suggested recipe based on current skill level
+local shouldCraftRecipe = { "unknown" } -- Materials needed to craft the suggested recipe
+local craftRecipeOptionsIndex = 1 -- Index for cycling through recipe options
 
--- variables for check if the recipe you should craft has changed
-local previousShouldCraft = {"unknown"}; -- what was the last value of shouldCraft?
+-- Track the last suggested recipe
+local previousShouldCraft = { "unknown" }
 
-------------------------------------------------------------------------------------------------------------
--- function that determines which recipe you shout craft
-
+-- Determines which recipe to craft based on profession and rank
 function GetCraftingToDo()
+	-- Select the recipe suggestion function based on profession
+	local professionRecipes = {
+		["Наложение чар"] = addonTable.getEnchantingCurrentSkillLevelRecipeToCraft,
+		["Портняжное дело"] = addonTable.getTailoringCurrentSkillLevelRecipeToCraft,
+		["Ювелирное дело"] = addonTable.getJewelcraftingCurrentSkillLevelRecipeToCraft,
+		["Кузнечное дело"] = addonTable.getBlacksmithingCurrentSkillLevelRecipeToCraft,
+		["Кожевничество"] = addonTable.getLeatherworkingCurrentSkillLevelRecipeToCraft,
+		["Инженерное дело"] = addonTable.getEngineeringCurrentSkillLevelRecipeToCraft,
+		["Начертание"] = addonTable.getInscriptionCurrentSkillLevelRecipeToCraft,
+		["Алхимия"] = addonTable.getAlchemyCurrentSkillLevelRecipeToCraft,
+		["Первая помощь"] = addonTable.getFirstAidCurrentSkillLevelRecipeToCraft,
+		["Кулинария"] = addonTable.getCookingCurrentSkillLevelRecipeToCraft,
+	}
 
-    if tradeSkillName == "Наложение чар" then
-        shouldCraft, shouldCraftRecipe = addonTable.getEnchantingCurrentSkillLevelRecipeToCraft(rank);
+	-- Get recipe suggestion based on current rank
+	if professionRecipes[tradeSkillName] then
+		shouldCraft, shouldCraftRecipe = professionRecipes[tradeSkillName](rank)
+	end
 
-    elseif tradeSkillName == "Портняжное дело" then
-        shouldCraft, shouldCraftRecipe = addonTable.getTailoringCurrentSkillLevelRecipeToCraft(rank);
-
-    elseif tradeSkillName == "Ювелирное дело" then
-        shouldCraft, shouldCraftRecipe = addonTable.getJewelcraftingCurrentSkillLevelRecipeToCraft(rank);
-
-    elseif tradeSkillName == "Кузнечное дело" then
-        shouldCraft, shouldCraftRecipe = addonTable.getBlacksmithingCurrentSkillLevelRecipeToCraft(rank);
-
-    elseif tradeSkillName == "Кожевничество" then
-        shouldCraft, shouldCraftRecipe = addonTable.getLeatherworkingCurrentSkillLevelRecipeToCraft(rank);
-
-    elseif tradeSkillName == "Инженерное дело" then
-        shouldCraft, shouldCraftRecipe = addonTable.getEngineeringCurrentSkillLevelRecipeToCraft(rank);
-
-    elseif tradeSkillName == "Начертание" then
-        shouldCraft, shouldCraftRecipe = addonTable.getInscriptionCurrentSkillLevelRecipeToCraft(rank);
-
-    elseif tradeSkillName == "Алхимия" then
-        shouldCraft, shouldCraftRecipe = addonTable.getAlchemyCurrentSkillLevelRecipeToCraft(rank);
-
-    elseif tradeSkillName == "Первая помощь" then
-        shouldCraft, shouldCraftRecipe = addonTable.getFirstAidCurrentSkillLevelRecipeToCraft(rank);
-
-    elseif tradeSkillName == "Кулинария" then
-        shouldCraft, shouldCraftRecipe = addonTable.getCookingCurrentSkillLevelRecipeToCraft(rank);
-    end
-
-
-    -- Check if cap level was already reached
-    if rank > 0 and rank < 450 then -- 1-449
-        local shouldCraftIcon = 'Interface\\InventoryItems\\WoWUnknownItem01';--Spell_Holy_GreaterHeal
-        displayRecipe()
-    else
-
-        -- if Profession Cap was already reached
-        shouldCraft = {"Неизвестно"};
-        shouldCraftRecipe = {"Неизвестно"};
-
-        txtShouldCraft:SetText("Кап профессии был достигнут");
-        imgSkillIcon:SetTexture(GetSpellTexture(tradeSkillName));
-        txtShouldCraftRecipe:SetText('');
-        MainFrameCoreCraft:Hide();
-        MainFrameCoreNextRecipe:Hide();
-        MainFrameCorePreviousRecipe:Hide();
-        MainFrameCore:SetHeight(150);
-    end
-
+	-- Check if profession cap has been reached
+	if rank > 0 and rank < 450 then
+		displayRecipe()
+	else
+		-- If the cap is reached, display a message
+		shouldCraft, shouldCraftRecipe = { "Неизвестно" }, { "Неизвестно" }
+		txtShouldCraft:SetText("Кап профессии был достигнут")
+		imgSkillIcon:SetTexture(GetSpellTexture(tradeSkillName))
+		txtShouldCraftRecipe:SetText("")
+		MainFrameCoreCraft:Hide()
+		MainFrameCoreNextRecipe:Hide()
+		MainFrameCorePreviousRecipe:Hide()
+		MainFrameCore:SetHeight(150)
+	end
 end
 
-------------------------------------------------------------------------------------------------------------
-
+-- Toggle visibility of the main frame
 function TogglePcapperFrame(toggle)
-  -- print("/pcapper " .. toggle);
-  if toggle == "show" then
-    MainFrameCore:Show();
-  elseif toggle == "hide" then
-    MainFrameCore:Hide();
-  end
+	if toggle == "show" then
+		MainFrameCore:Show()
+	else
+		MainFrameCore:Hide()
+	end
 end
 
+-- Addon initialization
 function fnOnLoad()
-print("|cff" .. addonTable.chat_frame_default_color .. "[Profession Capper] all modules loaded for|r |cff" .. addonTable.chat_frame_player_name_color .. "[" .. UnitLevel("player") .. "]" .. UnitName("player") .. "|r") -- print() = DEFAULT_CHAT_FRAME:AddMessage()
-this:RegisterEvent("TRADE_SKILL_UPDATE");
-this:RegisterEvent("TRADE_SKILL_CLOSE");
+	print(
+		"|cff"
+			.. addonTable.chat_frame_default_color
+			.. "[Profession Capper] loaded for|r |cff"
+			.. addonTable.chat_frame_player_name_color
+			.. "["
+			.. UnitLevel("player")
+			.. "] "
+			.. UnitName("player")
+			.. "|r"
+	)
 
-this:RegisterForDrag("LeftButton");
+	this:RegisterEvent("TRADE_SKILL_UPDATE")
+	this:RegisterEvent("TRADE_SKILL_CLOSE")
+	this:RegisterForDrag("LeftButton")
 
--- SlashCmdList["GET_CRAFTING_TODO"] = GetCraftingToDo;
-SlashCmdList["TOGGLE_PCAPPER_FRAME"] = TogglePcapperFrame;
-SLASH_TOGGLE_PCAPPER_FRAME1 = "/pcapper";
-
+	SlashCmdList["TOGGLE_PCAPPER_FRAME"] = TogglePcapperFrame
+	SLASH_TOGGLE_PCAPPER_FRAME1 = "/pcapper"
 end
 
+-- Event handling
 function fnOnEvent()
-    resetValues();
-    -- DEFAULT_CHAT_FRAME:AddMessage("TS window opened"); -- for debugging
-    -- print('event: ' .. event);
+	resetValues()
 
-    isLinked, name = IsTradeSkillLinked(); -- check if you opened a link or if it's your own professions frame
+	isLinked, name = IsTradeSkillLinked()
 
-    if isLinked then
-        -- DEFAULT_CHAT_FRAME:AddMessage("You're viewing " .. name .. "'s linked profession");
-    else
---        DEFAULT_CHAT_FRAME:AddMessage("It's your own profession frame");
-        if event == "TRADE_SKILL_UPDATE" then
-            tradeSkillName, rank, maxLevel = GetTradeSkillLine(); -- get profession name, current level and max level, respectively
-            -- print(tradeSkillName .. '(' .. rank .. '-' .. maxLevel .. ')'); -- for debugging
-
-            GetCraftingToDo();
-
-            MainFrameCore:Show()
-
-            -- tmpFSnameForpcapper:SetText("New Text"); -- funciona
-        elseif event == "TRADE_SKILL_CLOSE" then
-            MainFrameCore:Hide();
-        end
-
-
-    end
-
-
+	if not isLinked and event == "TRADE_SKILL_UPDATE" then
+		-- Get profession name, current level, and max level
+		tradeSkillName, rank, maxLevel = GetTradeSkillLine()
+		GetCraftingToDo()
+		MainFrameCore:Show()
+	elseif event == "TRADE_SKILL_CLOSE" then
+		MainFrameCore:Hide()
+	end
 end
 
+-- Display the suggested recipe and update UI
 function displayRecipe()
-    local hasRecipeChanged = table.concat(shouldCraft) ~= table.concat(previousShouldCraft);
-    local skillName, skillType, numAvailable, isExpanded, serviceType
-    local craftButtonText
-    local enableBtnCraft = false; -- controls if "craft" button will be enabled
+	local hasRecipeChanged = table.concat(shouldCraft) ~= table.concat(previousShouldCraft)
 
-    -- print('shouldCraft: ' .. table.concat(shouldCraft));
-    -- print('previousShouldCraft: ' .. table.concat(previousShouldCraft));
-    --
-    -- print('recipe changed:');
-    -- print(hasRecipeChanged); --debugging
-    --
-    -- -- prevent skill level changes from having nil values due to index out of bound
-    -- print('craftRecipeOptionsIndex(BEFORE): ' .. craftRecipeOptionsIndex); --debugging
+	-- Show next/previous buttons
+	MainFrameCoreNextRecipe:Show()
+	MainFrameCorePreviousRecipe:Show()
 
-    -- show buttons in case it was hidden due to 'skill level already 450'
-    MainFrameCoreNextRecipe:Show();
-    MainFrameCorePreviousRecipe:Show();
+	-- If recipe changed, reset the index to the first option
+	if hasRecipeChanged then
+		craftRecipeOptionsIndex = 1
+	end
 
-    if hasRecipeChanged then
-        craftRecipeOptionsIndex = 1
-    end
-    -- print('craftRecipeOptionsIndex(AFTER): ' .. craftRecipeOptionsIndex); --debugging
+	-- Enable/Disable buttons based on the current recipe index
+	MainFrameCorePreviousRecipe:SetEnabled(craftRecipeOptionsIndex > 1)
+	MainFrameCoreNextRecipe:SetEnabled(craftRecipeOptionsIndex < #shouldCraft)
 
-    -- Disable "previous" button if the first one is currently being shown
-    if craftRecipeOptionsIndex <= 1 then
-        MainFrameCorePreviousRecipe:Disable();
-    else
-        MainFrameCorePreviousRecipe:Enable();
-    end
+	-- Find and display the suggested recipe in the profession frame
+	local enableBtnCraft = false
+	for i = 1, GetNumTradeSkills() do
+		local skillName, _, numAvailable = GetTradeSkillInfo(i)
 
-    -- Disable "next" button if the last one is currently being shown
-    if craftRecipeOptionsIndex >= table.getn(shouldCraft) then
-        MainFrameCoreNextRecipe:Disable();
-    else
-        MainFrameCoreNextRecipe:Enable();
-    end
+		if skillName == shouldCraft[craftRecipeOptionsIndex] then
+			local shouldCraftIcon = GetTradeSkillIcon(i) or "Interface\\Icons\\Spell_Holy_GreaterHeal"
+			MainFrameCoreCraft:SetText("Создать (" .. numAvailable .. ")")
+			enableBtnCraft = true
+			imgSkillIcon:SetTexture(shouldCraftIcon)
+			break
+		else
+			-- Default unknown icon and message
+			MainFrameCoreCraft:SetText("Неизв. рецепт")
+			imgSkillIcon:SetTexture("Interface\\InventoryItems\\WoWUnknownItem01")
+		end
+	end
 
+	MainFrameCoreCraft:SetEnabled(enableBtnCraft)
+	txtShouldCraft:SetText(shouldCraft[craftRecipeOptionsIndex])
+	txtShouldCraftRecipe:SetText("Рецепт: " .. shouldCraftRecipe[craftRecipeOptionsIndex])
+	MainFrameCore:SetHeight(250)
+	MainFrameCoreCraft:Show()
 
-    for i = 1, GetNumTradeSkills() do
-        skillName, skillType, numAvailable, isExpanded, serviceType = GetTradeSkillInfo(i);
+	previousShouldCraft = shouldCraft
+end
 
-        if skillName == shouldCraft[craftRecipeOptionsIndex] then
-            craftButtonText = 'Craft (' .. numAvailable .. ')';
-            enableBtnCraft = true;
-
-            -- Replacements for generic icons
-            if GetTradeSkillIcon(i) == "Interface\\Icons\\Trade_Engraving" then
-                shouldCraftIcon = "Interface\\Icons\\Spell_Holy_GreaterHeal";
-            else
-                shouldCraftIcon = GetTradeSkillIcon(i);
-            end
-
-            break; -- exit 'for' loop if current skill index(on profession frame) matches the skill stored on 'shouldCraft' variable
-        else
-            shouldCraftIcon = "Interface\\InventoryItems\\WoWUnknownItem01"; -- red interrogation icon
-            craftButtonText = "Неизв. рецепт"; -- means that you have not learnt this recipe yet
-            enableBtnCraft = false;
-        end --if
-    end --for
-
-
-    -- Disable "craft" button if you can't craft the item
-    if (enableBtnCraft) and (numAvailable > 0) then
-        MainFrameCoreCraft:Enable();
-    else
-        MainFrameCoreCraft:Disable();
-    end
-
-    -- Setup and display the frame and its elements
-    txtShouldCraft:SetText(shouldCraft[craftRecipeOptionsIndex]); -- text that displays next recipe(s) you should craft
-    txtShouldCraftRecipe:SetText("Рецепт: " .. shouldCraftRecipe[craftRecipeOptionsIndex]); -- text that displays reagents for next recipe(s) you should craft
-
-    imgSkillIcon:SetTexture(shouldCraftIcon); ---- skill texture icon above button
-    MainFrameCoreCraft:SetText(craftButtonText) -- 'craft' button
-    MainFrameCore:SetHeight(250); ---------------- set frame height
-    MainFrameCoreCraft:Show(); ------------------- show the frame itself(turn it visible)
-
-    previousShouldCraft = shouldCraft;
-end --displayRecipe()
-
+-- Navigate through available recipes
 function displayNextRecipe()
-    craftRecipeOptionsIndex = craftRecipeOptionsIndex + 1
-    displayRecipe()
+	craftRecipeOptionsIndex = craftRecipeOptionsIndex + 1
+	displayRecipe()
 end
 
 function displayPreviousRecipe()
-    craftRecipeOptionsIndex = craftRecipeOptionsIndex - 1
-    displayRecipe()
+	craftRecipeOptionsIndex = craftRecipeOptionsIndex - 1
+	displayRecipe()
 end
 
+-- Craft the selected recipe
 function craftRecipe()
-    for i = 1, GetNumTradeSkills() do
-        local skillName, skillType, numAvailable, isExpanded, serviceType = GetTradeSkillInfo(i);
-        if skillName == shouldCraft[craftRecipeOptionsIndex] then
-            print("|cff" .. addonTable.chat_frame_default_color .."[Profession Capper] crafting|r |cff" .. addonTable.chat_frame_player_name_color .. numAvailable .."x |r|cff" .. addonTable.chat_frame_default_color .. shouldCraft[craftRecipeOptionsIndex] .. "|r")
-            DoTradeSkill(i, numAvailable);
-        end
-    end
+	for i = 1, GetNumTradeSkills() do
+		local skillName, _, numAvailable = GetTradeSkillInfo(i)
+
+		if skillName == shouldCraft[craftRecipeOptionsIndex] then
+			print(
+				"|cff"
+					.. addonTable.chat_frame_default_color
+					.. "[Profession Capper] crafting|r |cff"
+					.. addonTable.chat_frame_player_name_color
+					.. numAvailable
+					.. "x |r|cff"
+					.. addonTable.chat_frame_default_color
+					.. shouldCraft[craftRecipeOptionsIndex]
+					.. "|r"
+			)
+			DoTradeSkill(i, numAvailable)
+		end
+	end
 end
 
+-- Reset crafting UI values
 function resetValues()
-    shouldCraft = {"Неизвестно"};
-    shouldCraftRecipe = {"Неизвестно"};
-    txtShouldCraft:SetText(shouldCraft[craftRecipeOptionsIndex]);
-    imgSkillIcon:SetTexture("Interface\\InventoryItems\\WoWUnknownItem01");
-    txtShouldCraftRecipe:SetText('');
-    MainFrameCoreCraft:SetText('Craft');
+	shouldCraft, shouldCraftRecipe = { "Неизвестно" }, { "Неизвестно" }
+	txtShouldCraft:SetText(shouldCraft[craftRecipeOptionsIndex])
+	imgSkillIcon:SetTexture("Interface\\InventoryItems\\WoWUnknownItem01")
+	txtShouldCraftRecipe:SetText("")
+	MainFrameCoreCraft:SetText("Создать")
 end
