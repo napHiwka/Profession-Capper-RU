@@ -1,129 +1,158 @@
 addonName, addonTable = ...
 
-local shouldCraft, shouldCraftRecipe
-
-addonTable.getFirstAidCurrentSkillLevelRecipeToCraft = function(rank)
-	if rank > 0 and rank < 40 then --1 -39
-		shouldCraft = { "Льняные бинты" }
-		shouldCraftRecipe = { "1x Льняной материал" }
-	elseif rank > 39 and rank < 80 then -- 40-79
-		shouldCraft = { "Плотные льняные бинты" }
-		shouldCraftRecipe = { "2x Льняной материал" }
-	elseif rank > 79 and rank < 100 then -- 80-99
-		shouldCraft = {
+local CraftingData = {
+	{
+		min = 1,
+		max = 39,
+		craft = { "Льняные бинты" },
+		recipe = { "1x Льняной материал" },
+	},
+	{
+		min = 40,
+		max = 79,
+		craft = { "Плотные льняные бинты" },
+		recipe = { "2x Льняной материал" },
+	},
+	{
+		min = 80,
+		max = 99,
+		craft = {
 			"Шерстяные бинты",
 			"Плотные льняные бинты",
 			"Противоядие",
-		}
-		shouldCraftRecipe = {
-			"1x Шерсть", -- Шерстяные бинты
-			"2x Льняной материал", -- Плотные льняные бинты
-			"1x Малая ядовитая железа", -- Противоядие
-		}
-	elseif rank > 99 and rank < 115 then -- 100-114
-		shouldCraft = {
-			"Шерстяные бинты",
-			"Противоядие",
-		}
-		shouldCraftRecipe = {
-			"1x Шерсть", -- Шерстяные бинты
-			"1x Малая ядовитая железа", -- Противоядие
-		}
-	elseif rank > 114 and rank < 130 then -- 115-129
-		shouldCraft = { "Плотные шерстяные бинты" }
-		shouldCraftRecipe = { "2x Шерсть" }
-	elseif rank > 129 and rank < 150 then -- 130-149
-		shouldCraft = {
-			"Плотные шерстяные бинты",
-			"Мощное противоядие",
-		}
-		shouldCraftRecipe = {
-			"2x Шерсть", -- Плотные шерстяные бинты
-			"1x Большая ядовитая железа", -- Мощное противоядие
-		}
-	elseif rank > 149 and rank < 180 then -- 150-179
-		shouldCraft = {
+		},
+		recipe = {
+			"1x Шерсть",
+			"2x Льняной материал",
+			"1x Малая ядовитая железа",
+		},
+	},
+	{
+		min = 100,
+		max = 114,
+		craft = { "Шерстяные бинты", "Противоядие" },
+		recipe = { "1x Шерсть", "1x Малая ядовитая железа" },
+	},
+	{
+		min = 115,
+		max = 129,
+		craft = { "Плотные шерстяные бинты" },
+		recipe = { "2x Шерсть" },
+	},
+	{
+		min = 130,
+		max = 149,
+		craft = { "Плотные шерстяные бинты", "Мощное противоядие" },
+		recipe = { "2x Шерсть", "1x Большая ядовитая железа" },
+	},
+	{
+		min = 150,
+		max = 179,
+		craft = {
 			"Шелковые бинты",
 			"Плотные шерстяные бинты",
 			"Мощное противоядие",
-		}
-		shouldCraftRecipe = {
-			"1x Шелковый материал", -- Шелковые бинты
-			"2x Шерсть", -- Плотные шерстяные бинты
-			"1x Большая ядовитая железа", -- Мощное противоядие
-		}
-	elseif rank > 179 and rank < 210 then -- 180-209
-		shouldCraft = { "Плотные шелковые бинты" }
-		shouldCraftRecipe = { "2x Шелковый материал" }
-	elseif rank > 209 and rank < 240 then -- 210-239
-		shouldCraft = {
-			"Бинты из магической ткани",
-			"Плотные шелковые бинты",
-		}
-		shouldCraftRecipe = {
-			"1x Магическая ткань", -- Бинты из магической ткани
-			"2x Шелковый материал", -- Плотные шелковые бинты
-		}
-	elseif rank > 239 and rank < 260 then -- 240-259
-		shouldCraft = { "Плотные бинты из магической ткани" }
-		shouldCraftRecipe = { "2x Магическая ткань" }
-	elseif rank > 259 and rank < 290 then -- 260-289
-		shouldCraft = {
+		},
+		recipe = {
+			"1x Шелковый материал",
+			"2x Шерсть",
+			"1x Большая ядовитая железа",
+		},
+	},
+	{
+		min = 180,
+		max = 209,
+		craft = { "Плотные шелковые бинты" },
+		recipe = { "2x Шелковый материал" },
+	},
+	{
+		min = 210,
+		max = 239,
+		craft = { "Бинты из магической ткани", "Плотные шелковые бинты" },
+		recipe = { "1x Магическая ткань", "2x Шелковый материал" },
+	},
+	{
+		min = 240,
+		max = 259,
+		craft = { "Плотные бинты из магической ткани" },
+		recipe = { "2x Магическая ткань" },
+	},
+	{
+		min = 260,
+		max = 289,
+		craft = {
 			"Бинты из рунической ткани",
 			"Плотные бинты из рунической ткани",
-		}
-		shouldCraftRecipe = {
-			"1x Руническая ткань", -- Бинты из рунической ткани
-			"2x Магическая ткань", -- Бинты из рунической ткани
-		}
-	elseif rank > 289 and rank < 300 then -- 290-299
-		shouldCraft = {
+		},
+		recipe = { "1x Руническая ткань", "2x Магическая ткань" },
+	},
+	{
+		min = 290,
+		max = 299,
+		craft = {
 			"Плотные бинты из рунической ткани",
 			"Бинты из рунической ткани",
-		}
-		shouldCraftRecipe = {
-			"2x Руническая ткань", -- Плотные бинты из рунической ткани
-			"2x Бинты из магической ткани", -- Бинты из рунической ткани
-		}
-	elseif rank > 299 and rank < 330 then -- 300-329
-		shouldCraft = {
+		},
+		recipe = { "2x Руническая ткань", "2x Магическая ткань" },
+	},
+	{
+		min = 300,
+		max = 329,
+		craft = {
 			"Бинты из ткани Пустоты",
 			"Плотные бинты из рунической ткани",
 			"Мощное противоядие",
-		}
-		shouldCraftRecipe = {
-			"1x Ткань Пустоты", -- Бинты из ткани Пустоты
-			"2x Руническая ткань", -- Плотные бинты из рунической ткани
-			"1x Огромная ядовитая железа", -- Мощное противоядие
-		}
-	elseif rank > 329 and rank < 350 then -- 330-349
-		shouldCraft = {
+		},
+		recipe = {
+			"1x Ткань Пустоты",
+			"2x Руническая ткань",
+			"1x Огромная ядовитая железа",
+		},
+	},
+	{
+		min = 330,
+		max = 349,
+		craft = {
 			"Плотные бинты из ткани Пустоты",
 			"Плотные бинты из рунической ткани",
 			"Мощное противоядие",
-		}
-		shouldCraftRecipe = {
-			"2x Ткань Пустоты", -- Плотные бинты из ткани Пустоты
-			"2x Руническая ткань", -- Плотные бинты из рунической ткани
-			"1x Огромная ядовитая железа", -- Мощное противоядие
-		}
-	elseif rank > 349 and rank < 375 then -- 350-374
-		shouldCraft = {
+		},
+		recipe = {
+			"2x Ткань Пустоты",
+			"2x Руническая ткань",
+			"1x Огромная ядовитая железа",
+		},
+	},
+	{
+		min = 350,
+		max = 374,
+		craft = {
 			"Бинты из ледяной ткани",
 			"Плотные бинты из ткани Пустоты",
-		}
-		shouldCraftRecipe = {
-			"1x Ледяная ткань", -- Бинты из ледяной ткани
-			"2x Ткань Пустоты", -- Плотные бинты из ткани Пустоты
-		}
-	elseif rank > 374 and rank < 400 then -- 375-399
-		shouldCraft = { "Бинты из ледяной ткани" }
-		shouldCraftRecipe = { "1x Ледяная ткань" }
-	elseif rank > 399 and rank < 450 then -- 400-449
-		shouldCraft = { "Плотные бинты из ледяной ткани" }
-		shouldCraftRecipe = { "2x Ледяная ткань" }
+		},
+		recipe = { "1x Ледяная ткань", "2x Ткань Пустоты" },
+	},
+	{
+		min = 375,
+		max = 399,
+		craft = { "Бинты из ледяной ткани" },
+		recipe = { "1x Ледяная ткань" },
+	},
+	{
+		min = 400,
+		max = 449,
+		craft = { "Плотные бинты из ледяной ткани" },
+		recipe = { "2x Ледяная ткань" },
+	},
+}
+
+addonTable.getFirstAidCurrentSkillLevelRecipeToCraft = function(rank)
+	for _, data in ipairs(CraftingData) do
+		if rank >= data.min and rank <= data.max then
+			return data.craft, data.recipe
+		end
 	end
-	return shouldCraft, shouldCraftRecipe
+	return nil, nil -- Return nil if no match is found
 end
 
 print("|cff" .. addonTable.chat_frame_default_color .. "[Profession Capper] loaded First Aid module|r")
