@@ -1,496 +1,495 @@
-addonName, addonTable = ...;
+addonName, addonTable = ...
 
-local shouldCraft, shouldCraftRecipe;
+local shouldCraft, shouldCraftRecipe
 
 addonTable.getCookingCurrentSkillLevelRecipeToCraft = function(rank)
-    if rank > 0 and rank < 20 then -- 1-19
-        shouldCraft = {
-            "Spice Bread",
-            "Herb Baked Egg",
-            "Charred Wolf Meat",
-            "Roasted Boar Meat",
-            "Brilliant Smallfish",
-            "Crispy Bat Wing",
-            "Lynx Steak",
-            "Slitherskin Mackerel",
-            "Roasted Moongraze Tenderloin"
-        };
-        shouldCraftRecipe = {
-            "1x Simple Flour, 1x Mild Spices", -- Spice Bread
-            "1x Small Egg", --------------------- Herb Baked Egg
-            "1x Stringy Wolf Meat", ------------- Charred Wolf Meat
-            "1x Chunk of Boar Meat", ------------ Roasted Boar Meat
-            "1x Raw Brilliant Smallfish", ------- Brilliant Smallfish
-            "1x Meaty Bat Wing", ---------------- Crispy Bat Wing
-            "1x Lynx Meat", --------------------- Lynx Steak
-            "1x Raw Slitherskin Mackerel", ------ Slitherskin Mackerel
-            "1x Moongraze Stag Tenderloin" ------ Roasted Moongraze Tenderloin
-        };
-    elseif rank > 19 and rank < 40 then -- 20-39
-        shouldCraft = {
-            "Spice Bread",
-            "Scorpid Surprise",
-            "Herb Baked Egg",
-            "Charred Wolf Meat",
-            "Roasted Boar Meat",
-            "Brilliant Smallfish",
-            "Crispy Bat Wing",
-            "Lynx Steak",
-            "Slitherskin Mackerel",
-            "Roasted Moongraze Tenderloin"
-        };
-        shouldCraftRecipe = {
-            "1x Simple Flour, 1x Mild Spices", -- Spice Bread
-            "1x Scorpid Stinger", --------------- Scorpid Surprise
-            "1x Small Egg", --------------------- Herb Baked Egg
-            "1x Stringy Wolf Meat", ------------- Charred Wolf Meat
-            "1x Chunk of Boar Meat", ------------ Roasted Boar Meat
-            "1x Raw Brilliant Smallfish", ------- Brilliant Smallfish
-            "1x Meaty Bat Wing", ---------------- Crispy Bat Wing
-            "1x Lynx Meat", --------------------- Lynx Steak
-            "1x Raw Slitherskin Mackerel", ------ Slitherskin Mackerel
-            "1x Moongraze Stag Tenderloin" ------ Roasted Moongraze Tenderloin
-        };
-    elseif rank > 39 and rank < 45 then -- 40-44
-        shouldCraft = {
-            "Scorpid Surprise",
-            "Herb Baked Egg",
-            "Charred Wolf Meat",
-            "Roasted Boar Meat",
-            "Brilliant Smallfish",
-            "Crispy Bat Wing",
-            "Lynx Steak",
-            "Slitherskin Mackerel",
-            "Roasted Moongraze Tenderloin"
-        };
-        shouldCraftRecipe = {
-            "1x Scorpid Stinger", --------------- Scorpid Surprise
-            "1x Small Egg", --------------------- Herb Baked Egg
-            "1x Stringy Wolf Meat", ------------- Charred Wolf Meat
-            "1x Chunk of Boar Meat", ------------ Roasted Boar Meat
-            "1x Raw Brilliant Smallfish", ------- Brilliant Smallfish
-            "1x Meaty Bat Wing", ---------------- Crispy Bat Wing
-            "1x Lynx Meat", --------------------- Lynx Steak
-            "1x Raw Slitherskin Mackerel", ------ Slitherskin Mackerel
-            "1x Moongraze Stag Tenderloin" ------ Roasted Moongraze Tenderloin
-        };
-    elseif rank > 44 and rank < 50 then -- 45-49
-        shouldCraft = {
-            "Smoked Bear Meat",
-            "Scorpid Surprise",
-            "Spiced Wolf Meat"
-        };
-        shouldCraftRecipe = {
-            "1x Bear Meat", ---------- Smoked Bear Meat
-            "1x Scorpid Stinger", ---- Scorpid Surprise
-            "1x Stringy Wolf Meat" --- Spiced Wolf Meat
-        };
-    elseif rank > 49 and rank < 70 then -- 50-69
-        shouldCraft = {
-            "Smoked Bear Meat",
-            "Bat Bites",
-            "Scorpid Surprise",
-            "Coyote Steak",
-            "Boiled Clams",
-            "Goretusk Liver Pie",
-            "Loch Frenzy Delight",
-            "Longjaw Mud Snapper",
-            "Rainbow Fin Albacore",
-            "Strider Stew",
-            "Spiced Wolf Meat"
-        };
-        shouldCraftRecipe = {
-            "1x Bear Meat", ------------------------------ Smoked Bear Meat
-            "1x Bat Flesh", ------------------------------ Bat Bites
-            "1x Scorpid Stinger", ------------------------ Scorpid Surprise
-            "1x Coyote Meat", ---------------------------- Coyote Steak
-            "1x Clam Meat, 1x Refreshing Spring Water", -- Boiled Clams
-            "1x Goretusk Liver", ------------------------- Goretusk Liver Pie
-            "1x Raw Loch Frenzy", ------------------------ Loch Frenzy Delight
-            "1x Raw Longjaw Mud Snapper", ---------------- Longjaw Mud Snapper
-            "1x Raw Rainbow Fin Albacore", --------------- Rainbow Fin Albacore
-            "1x Strider Meat", --------------------------- Strider Stew
-            "1x Stringy Wolf Meat" ----------------------- Spiced Wolf Meat
-        };
-    elseif rank > 69 and rank < 80 then -- 70-79
-        shouldCraft = {
-            "Smoked Bear Meat",
-            "Scorpid Surprise",
-            "Coyote Steak",
-            "Boiled Clams",
-            "Goretusk Liver Pie",
-            "Loch Frenzy Delight",
-            "Longjaw Mud Snapper",
-            "Rainbow Fin Albacore",
-            "Strider Stew"
-        };
-        shouldCraftRecipe = {
-            "1x Bear Meat", ------------------------------ Smoked Bear Meat
-            "1x Scorpid Stinger", ------------------------ Scorpid Surprise
-            "1x Coyote Meat", ---------------------------- Coyote Steak
-            "1x Clam Meat, 1x Refreshing Spring Water", -- Boiled Clams
-            "1x Goretusk Liver", ------------------------- Goretusk Liver Pie
-            "1x Raw Loch Frenzy", ------------------------ Loch Frenzy Delight
-            "1x Raw Longjaw Mud Snapper", ---------------- Longjaw Mud Snapper
-            "1x Raw Rainbow Fin Albacore", --------------- Rainbow Fin Albacore
-            "1x Strider Meat" ---------------------------- Strider Stew
-        };
-    elseif rank > 79 and rank < 110 then -- 80-109
-        shouldCraft = {
-            "Smoked Sagefish",
-            "Crab Cake",
-            "Coyote Steak",
-            "Boiled Clams",
-            "Goretusk Liver Pie",
-            "Loch Frenzy Delight",
-            "Longjaw Mud Snapper",
-            "Rainbow Fin Albacore",
-            "Strider Stew"
-        };
-        shouldCraftRecipe = {
-            "1x Raw Sagefish", ----------------------------- Smoked Sagefish
-            "1x Crawler Meat", ----------------------------- Crab Cake
-            "1x Coyote Meat", ------------------------------ Coyote Steak
-            "1x Clam Meat, 1x Refreshing Spring Water", ---- Boiled Clams
-            "1x Goretusk Liver", --------------------------- Goretusk Liver Pie
-            "1x Raw Loch Frenzy", -------------------------- Loch Frenzy Delight
-            "1x Raw Longjaw Mud Snapper", ------------------ Longjaw Mud Snapper
-            "1x Raw Rainbow Fin Albacore", ----------------- Rainbow Fin Albacore
-            "1x Strider Meat" ------------------------------ Strider Stew
-        };
-    elseif rank > 109 and rank < 130 then -- 110-129
-        shouldCraft = {
-            "Big Bear Steak",
-            "Gooey Spider Cake",
-            "Smoked Sagefish",
-            "Crab Cake",
-            "Coyote Steak",
-            "Boiled Clams",
-            "Goretusk Liver Pie",
-            "Loch Frenzy Delight",
-            "Longjaw Mud Snapper",
-            "Rainbow Fin Albacore",
-            "Strider Stew"
-        };
-        shouldCraftRecipe = {
-            "1x Big Bear Meat", ---------------------------- Big Bear Steak
-            "2x Gooey Spider Leg", ------------------------- Gooey Spider Cake
-            "1x Raw Sagefish", ----------------------------- Smoked Sagefish
-            "1x Crawler Meat", ----------------------------- Crab Cake
-            "1x Coyote Meat", ------------------------------ Coyote Steak
-            "1x Clam Meat, 1x Refreshing Spring Water", ---- Boiled Clams
-            "1x Goretusk Liver", --------------------------- Goretusk Liver Pie
-            "1x Raw Loch Frenzy", -------------------------- Loch Frenzy Delight
-            "1x Raw Longjaw Mud Snapper", ------------------ Longjaw Mud Snapper
-            "1x Raw Rainbow Fin Albacore", ----------------- Rainbow Fin Albacore
-            "1x Strider Meat" ------------------------------ Strider Stew
-        };
-    elseif rank > 129 and rank < 140 then -- 130-139
-        shouldCraft = {
-            "Curiously Tasty Omelet",
-            "Hot Lion Chops",
-            "Lean Wolf Steak",
-            "Goblin Deviled Clams",
-            "Crocolisk Gumbo",
-            "Big Bear Steak",
-            "Gooey Spider Cake",
-            "Smoked Sagefish",
-            "Crab Cake",
-            "Coyote Steak",
-            "Boiled Clams",
-            "Goretusk Liver Pie",
-            "Loch Frenzy Delight",
-            "Longjaw Mud Snapper",
-            "Rainbow Fin Albacore",
-            "Strider Stew"
-        };
-        shouldCraftRecipe = {
-            "1x Raptor Egg", ------------------------------- Curiously Tasty Omelet
-            "1x Lion Meat", -------------------------------- Hot Lion Chops
-            "1x Lean Wolf Flank", -------------------------- Lean Wolf Steak
-            "1x Tangy Clam Meat", -------------------------- Goblin Deviled Clams
-            "1x Tender Crocolisk Meat", -------------------- Crocolisk Gumbo
-            "1x Big Bear Meat", ---------------------------- Big Bear Steak
-            "2x Gooey Spider Leg", ------------------------- Gooey Spider Cake
-            "1x Raw Sagefish", ----------------------------- Smoked Sagefish
-            "1x Crawler Meat", ----------------------------- Crab Cake
-            "1x Coyote Meat", ------------------------------ Coyote Steak
-            "1x Clam Meat, 1x Refreshing Spring Water", ---- Boiled Clams
-            "1x Goretusk Liver", --------------------------- Goretusk Liver Pie
-            "1x Raw Loch Frenzy", -------------------------- Loch Frenzy Delight
-            "1x Raw Longjaw Mud Snapper", ------------------ Longjaw Mud Snapper
-            "1x Raw Rainbow Fin Albacore", ----------------- Rainbow Fin Albacore
-            "1x Strider Meat" ------------------------------ Strider Stew
-        };
-    elseif rank > 139 and rank < 175 then -- 140-174
-        shouldCraft = {
-            "Curiously Tasty Omelet",
-            "Hot Lion Chops",
-            "Lean Wolf Steak",
-            "Goblin Deviled Clams",
-            "Crocolisk Gumbo",
-            "Big Bear Steak",
-            "Gooey Spider Cake"
-        };
-        shouldCraftRecipe = {
-            "1x Raptor Egg", ------------- Curiously Tasty Omelet
-            "1x Lion Meat", -------------- Hot Lion Chops
-            "1x Lean Wolf Flank", -------- Lean Wolf Steak
-            "1x Tangy Clam Meat", -------- Goblin Deviled Clams
-            "1x Tender Crocolisk Meat", -- Crocolisk Gumbo
-            "1x Big Bear Meat", ---------- Big Bear Steak
-            "2x Gooey Spider Leg", ------- Gooey Spider Cake
-        };
-    elseif rank > 174 and rank < 225 then -- 175-224
-        shouldCraft = {
-            "Roast Raptor",
-            "Barbecued Buzzard Wing",
-            "Sagefish Delight",
-            "Rockscale Cod",
-            "Carrion Surprise",
-            "Giant Clam Scorcho",
-            "Mithril Head Trout",
-            "Soothing Turtle Bisque",
-            "Jungle Stew",
-            "Mystery Stew"
-        };
-        shouldCraftRecipe = {
-            "1x Raptor Flesh", ---------------------------- Roast Raptor
-            "1x Buzzard Wing", ---------------------------- Barbecued Buzzard Wing
-            "1x Raw Greater Sagefish", -------------------- Sagefish Delight
-            "1x Raw Rockscale Cod", ----------------------- Rockscale Cod
-            "1x Mystery Meat", ---------------------------- Carrion Surprise
-            "1x Giant Clam Meat", ------------------------- Giant Clam Scorcho
-            "1x Raw Mithril Head Trout", ------------------ Mithril Head Trout
-            "1x Turtle Meat", ----------------------------- Soothing Turtle Bisque
-            "1x Tiger Meat, 1x Refreshing Spring Water", -- Jungle Stew
-            "1x Mystery Meat, 1x Skin of DwarvenStout" ---- Mystery Stew
-        };
-    elseif rank > 224 and rank < 250 then -- 225-249
-        shouldCraft = {
-            "Monster Omelet",
-            "Tender Wolf Steak",
-            "Spiced Chili Crab",
-            "Cooked Glossy Mightfish",
-            "Filet of Redgill",
-            "Spotted Yellowtail"
-        };
-        shouldCraftRecipe = {
-            "1x Giant Egg", --------------- Monster Omelet
-            "1x Tender Wolf Meat", -------- Tender Wolf Steak
-            "1x Tender Crab Meat", -------- Spiced Chili Crab
-            "1x Raw Glossy Mightfish", ---- Cooked Glossy Mightfish
-            "1x Raw Redgill", ------------- Filet of Redgill
-            "1x Raw Spotted Yellowtail" --- Spotted Yellowtail
-        };
-    elseif rank > 249 and rank < 285 then -- 250-284
-        shouldCraft = {
-            "Juicy Bear Burger",
-            "Charred Bear Kabobs",
-            "Poached Sunscale Salmon"
-        };
-        shouldCraftRecipe = {
-            "1x Bear Flank", ---------- Juicy Bear Burger
-            "1x Bear Flank", ---------- Charred Bear Kabobs
-            "1x Raw Sunscale Salmon" -- Poached Sunscale Salmon
-        };
-    elseif rank > 284 and rank < 300 then -- 285-299
-        shouldCraft = {
-            "Smoked Desert Dumplings",
-            "Baked Salmon",
-            "Mightfish Steak",
-            "Lobster Stew",
-            "Runn Tum Tuber Surprise"
-        };
-        shouldCraftRecipe = {
-            "1x Sandworm Meat", --------------------------------- Smoked Desert Dumplings
-            "1x Raw Whitescale Salmon", ------------------------- Baked Salmon
-            "1x Large Raw Mightfish", --------------------------- Mightfish Steak
-            "1x Darkclaw Lobster, 1x Refreshing Spring Water", -- Lobster Stew
-            "1x Runn Tum Tuber" --------------------------------- Runn Tum Tuber Surprise
-        };
-    elseif rank > 299 and rank < 325 then -- 300-324
-        shouldCraft = {
-            "Ravager Dog",
-            "Buzzard Bites",
-            "Blackened Trout",
-            "Feltail Delight",
-            "Broiled Bloodfin",
-            "Kibler's Bits"
-        };
-        shouldCraftRecipe = {
-            "1x Ravager Flesh", ------ Ravager Dog
-            "1x Buzzard Meat", ------- Buzzard Bites
-            "1x Barbed Gill Trout", -- Blackened Trout
-            "1x Spotted Feltail", ---- Feltail Delight
-            "1x Bloodfin Catfish", --- Broiled Bloodfin
-            "1x Buzzard Meat" -------- Kibler's Bits
-        };
-    elseif rank > 324 and rank < 335 then -- 325-334
-        shouldCraft = {
-            "Talbuk Steak",
-            "Roasted Clefthoof",
-            "Warp Burger"
-        };
-        shouldCraftRecipe = {
-            "1x Talbuk Venison", -- Talbuk Steak
-            "1x Clefthoof Meat", -- Roasted Clefthoof
-            "1x Warped Flesh" ----- Warp Burger
-        };
-    elseif rank > 334 and rank < 350 then -- 335-349
-        shouldCraft = {
-            "Talbuk Steak",
-            "Roasted Clefthoof",
-            "Warp Burger",
-            "Mok'Nathal Shortribs",
-            "Crunchy Serpent"
-        };
-        shouldCraftRecipe = {
-            "1x Talbuk Venison", -- Talbuk Steak
-            "1x Clefthoof Meat", -- Roasted Clefthoof
-            "1x Warped Flesh", ---- Warp Burger
-            "1x Raptor Ribs", ----- Mok'Nathal Shortribs
-            "1x Serpent Meat" ----- Crunchy Serpent
-        };
-
-    elseif rank > 349 and rank < 375 then -- 350-374
-        shouldCraft = {
-            "Baked Manta Ray",
-            "Mammoth Meal",
-            "Poached Nettlefish",
-            "Smoked Salmon",
-            "Pickled Fangtooth",
-            "Grilled Sculpin",
-            "Rhino Dogs",
-            "Worm Delight",
-            "Roasted Worg",
-            "Shoveltusk Steak",
-            "Northern Stew",
-            "Smoked Rockfin",
-            "Grilled Bonescale",
-            "Sauteed Goby",
-            "Dalaran Clam Chowder",
-            "Spicy Crawdad",
-            "Fisherman's Feast",
-            "Hot Buttered Trout"
-        };
-        shouldCraftRecipe = {
-            "1x Imperial Mantra Ray", -------- Baked Manta Ray
-            "1x Chunk o' Mammoth", ----------- Mammoth Meal
-            "1x Nettlefish", ----------------- Poached Nettlefish
-            "1x Glacial Salmon", ------------- Smoked Salmon
-            "1x Fangtooth Herring", ---------- Pickled Fangtooth
-            "1x Musselback Sculpin", --------- Grilled Sculpin
-            "1x Rhino Meat", ----------------- Rhino Dogs
-            "1x Worm Meat", ------------------ Worm Delight
-            "1x Worg Haunch", ---------------- Roasted Worg
-            "1x Shoveltusk Flank", ----------- Shoveltusk Steak
-            "1x Chilled Meat", --------------- Northern Stew
-            "1x Rockfin Grouper", ------------ Smoked Rockfin
-            "1x Bonescale Snapper", ---------- Grilled Bonescale
-            "1x Barrelhead Goby", ------------ Sauteed Goby
-            "2x Succulent Clam Meat", -------- Dalaran Clam Chowder
-            "1x Furious Crowdad", ------------ Spicy Crawdad
-            "1x Huge Spotted Feltail", ------- Fisherman's Feast
-            "1x Enormous Barbed Gill Trout" -- Hot Buttered Trout
-        };
-    elseif rank > 374 and rank < 400 then -- 375-399
-        shouldCraft = {
-            "Kungaloosh",
-            "Baked Manta Ray",
-            "Mammoth Meal",
-            "Poached Nettlefish",
-            "Smoked Salmon",
-            "Pickled Fangtooth",
-            "Grilled Sculpin",
-            "Rhino Dogs",
-            "Worm Delight",
-            "Roasted Worg",
-            "Shoveltusk Steak",
-            "Dalaran Clam Chowder"
-        };
-        shouldCraftRecipe = {
-            "2x Tundra Berries, 1x Savory Snowplum", -- Kungaloosh
-            "1x Imperial Mantra Ray", ----------------- Baked Manta Ray
-            "1x Chunk o' Mammoth", -------------------- Mammoth Meal
-            "1x Nettlefish", -------------------------- Poached Nettlefish
-            "1x Glacial Salmon", ---------------------- Smoked Salmon
-            "1x Fangtooth Herring", ------------------- Pickled Fangtooth
-            "1x Musselback Sculpin", ------------------ Grilled Sculpin
-            "1x Rhino Meat", -------------------------- Rhino Dogs
-            "1x Worm Meat", --------------------------- Worm Delight
-            "1x Worg Haunch", ------------------------- Roasted Worg
-            "1x Shoveltusk Flank", -------------------- Shoveltusk Steak
-            "2x Succulent Clam Meat" ------------------ Dalaran Clam Chowder
-        };
-    elseif rank > 399 and rank < 425 then -- 400-424
-        shouldCraft = {
-            "Blackened Dragonfin",
-            "Dragonfin Filet",
-            "Blackened Worg Steak",
-            "Very Burnt Worg",
-            "Cuttlesteak",
-            "Firecracker Salmon",
-            "Hearty Rhino",
-            "Imperial Manta Steak",
-            "Poached Northern Sculpin",
-            "Spiced Mammoth Treats",
-            "Spicy Blue Nettlefish",
-            "Spicy Fried Herring",
-            "Tracker Snacks"
-        };
-        shouldCraftRecipe = {
-            "1x Dragonfin Angelfish, 1x Northern Spices", -- Blackened Dragonfin
-            "1x Dragonfin Angelfish, 1x Northern Spices", -- Dragonfin Filet
-            "1x Worg Haunch, 1x Northern Spices", ---------- Blackened Worg Steak
-            "1x Worg Haunch, 1x Northern Spices", ---------- Very Burnt Worg
-            "1x Moonglow Cuttlefish, 1x Northern Spices", -- Cuttlesteak
-            "1x Glacial Salmon, 1x Northern Spices", ------- Firecracker Salmon
-            "1x Rhino Meat, 1x Northern Spices", ----------- Hearty Rhino
-            "1x Imperial Manta Ray, 1x Northern Spices", --- Imperial Manta Steak
-            "1x Musselback Sculpin, 1x Northern Spices", --- Poached Northern Sculpin
-            "1x Chunk o' Mammoth, 1x Northern Spices", ----- Spiced Mammoth Treats
-            "1x Nettlefish, 1x Northern Spices", ----------- Spicy Blue Nettlefish
-            "1x Fangtooth Herring, 1x Northern Spices", ---- Spicy Fried Herring
-            "1x Shoveltusk Flank, 1x Northern Spices" ------ Tracker Snacks
-        };
-    elseif rank > 424 and rank < 450 then -- 425-449
-        shouldCraft = {
-            "Gigantic Feast",
-            "Small Feast",
-            "Blackened Dragonfin",
-            "Dragonfin Filet",
-            "Blackened Worg Steak",
-            "Very Burnt Worg",
-            "Cuttlesteak",
-            "Firecracker Salmon",
-            "Hearty Rhino",
-            "Imperial Manta Steak",
-            "Poached Northern Sculpin",
-            "Spiced Mammoth Treats",
-            "Spicy Blue Nettlefish",
-            "Spicy Fried Herring",
-            "Tracker Snacks"
-        };
-        shouldCraftRecipe = {
-            "1x Northern Spices, 2x Chunk o' Mammoth, 2x Deep Sea Monsterbelly, 2x Rockfin Grouper", -- Gigantic Feast
-            "1x Northern Spices, 2x Glacial Salmon, 2x Nettlefish, 2x Rhino Meat", -------------------- Small Feast
-            "1x Dragonfin Angelfish, 1x Northern Spices", --------------------------------------------- Blackened Dragonfin
-            "1x Dragonfin Angelfish, 1x Northern Spices", --------------------------------------------- Dragonfin Filet
-            "1x Worg Haunch, 1x Northern Spices", ----------------------------------------------------- Blackened Worg Steak
-            "1x Worg Haunch, 1x Northern Spices", ----------------------------------------------------- Very Burnt Worg
-            "1x Moonglow Cuttlefish, 1x Northern Spices", --------------------------------------------- Cuttlesteak
-            "1x Glacial Salmon, 1x Northern Spices", -------------------------------------------------- Firecracker Salmon
-            "1x Rhino Meat, 1x Northern Spices", ------------------------------------------------------ Hearty Rhino
-            "1x Imperial Manta Ray, 1x Northern Spices", ---------------------------------------------- Imperial Manta Steak
-            "1x Musselback Sculpin, 1x Northern Spices", ---------------------------------------------- Poached Northern Sculpin
-            "1x Chunk o' Mammoth, 1x Northern Spices", ------------------------------------------------ Spiced Mammoth Treats
-            "1x Nettlefish, 1x Northern Spices", ------------------------------------------------------ Spicy Blue Nettlefish
-            "1x Fangtooth Herring, 1x Northern Spices", ----------------------------------------------- Spicy Fried Herring
-            "1x Shoveltusk Flank, 1x Northern Spices" ------------------------------------------------- Tracker Snacks
-        };
-    end
-    return shouldCraft, shouldCraftRecipe
+	if rank > 0 and rank < 20 then -- 1-19
+		shouldCraft = {
+			"Хлеб с пряностями",
+			"Яйцо с травами",
+			"Рецепт волчатины на углях",
+			"Рецепт жареной кабанятины",
+			"Блестящая рыбка",
+			"Хрустящее крылышко летучей мыши",
+			"Стейк из рысятины",
+			"Скользкокожая скумбрия",
+			"Жареная вырезка лунного оленя",
+		}
+		shouldCraftRecipe = {
+			"1x Простая мука, 1x Пряные травы", -- Хлеб с пряностями
+			"1x Небольшое яйцо", -- Яйцо с травами
+			"1x Жилистая волчатина", -- Рецепт волчатины на углях
+			"1x Кусок кабанины", -- Рецепт жареной кабанятины
+			"1x Сырая блестящая рыбка", -- Блестящая рыбка
+			"1x Мясистое крыло летучей мыши", -- Хрустящее крылышко летучей мыши
+			"1x Рысье мясо", -- Стейк из рысятины
+			"1x Сырая скользкокожая скумбрия", -- Скользкокожая скумбрия
+			"1x Вырезка лунного оленя", -- Жареная вырезка лунного оленя
+		}
+	elseif rank > 19 and rank < 40 then -- 20-39
+		shouldCraft = {
+			"Хлеб с пряностями",
+			"Десерт из скорпида",
+			"Яйцо с травами",
+			"Рецепт волчатины на углях",
+			"Рецепт жареной кабанятины",
+			"Блестящая рыбка",
+			"Хрустящее крылышко летучей мыши",
+			"Стейк из рысятины",
+			"Скользкокожая скумбрия",
+			"Жареная вырезка лунного оленя",
+		}
+		shouldCraftRecipe = {
+			"1x Простая мука, 1x Пряные травы", -- Хлеб с пряностями
+			"1x Жало скорпида", -- Десерт из скорпида
+			"1x Небольшое яйцо", -- Яйцо с травами
+			"1x Жилистая волчатина", -- Рецепт волчатины на углях
+			"1x Кусок кабанины", -- Рецепт жареной кабанятины
+			"1x Сырая блестящая рыбка", -- Блестящая рыбка
+			"1x Мясистое крыло летучей мыши", -- Хрустящее крылышко летучей мыши
+			"1x Рысье мясо", -- Стейк из рысятины
+			"1x Сырая скользкокожая скумбрия", -- Скользкокожая скумбрия
+			"1x Вырезка лунного оленя", -- Жареная вырезка лунного оленя
+		}
+	elseif rank > 39 and rank < 45 then -- 40-44
+		shouldCraft = {
+			"Десерт из скорпида",
+			"Яйцо с травами",
+			"Рецепт волчатины на углях",
+			"Рецепт жареной кабанятины",
+			"Блестящая рыбка",
+			"Хрустящее крылышко летучей мыши",
+			"Стейк из рысятины",
+			"Скользкокожая скумбрия",
+			"Жареная вырезка лунного оленя",
+		}
+		shouldCraftRecipe = {
+			"1x Жало скорпида", -- Десерт из скорпида
+			"1x Небольшое яйцо", -- Яйцо с травами
+			"1x Жилистая волчатина", -- Рецепт волчатины на углях
+			"1x Кусок кабанины", -- Рецепт жареной кабанятины
+			"1x Сырая блестящая рыбка", --- Блестящая рыбка
+			"1x Мясистое крыло летучей мыши", -- Хрустящее крылышко летучей мыши
+			"1x Рысье мясо", -- Стейк из рысятины
+			"1x Сырая скользкокожая скумбрия", -- Скользкокожая скумбрия
+			"1x Вырезка лунного оленя", -- Жареная вырезка лунного оленя
+		}
+	elseif rank > 44 and rank < 50 then -- 45-49
+		shouldCraft = {
+			"Копченая медвежатина",
+			"Десерт из скорпида",
+			"Волчатина с пряностями",
+		}
+		shouldCraftRecipe = {
+			"1x Медвежатина", -- Копченая медвежатина
+			"1x Жало скорпида", -- Десерт из скорпида
+			"1x Жилистая волчатина", -- Волчатина с пряностями
+		}
+	elseif rank > 49 and rank < 70 then -- 50-69
+		shouldCraft = {
+			"Копченая медвежатина",
+			"Закуска из летучей мыши",
+			"Десерт из скорпида",
+			"Стейк из койота",
+			"Отварные мидии",
+			"Рецепт пирожка из печени жутеклыка",
+			"Деликатес из бешенки",
+			"Острозубый илистый луциан",
+			"Радужный тунец",
+			"Похлебка из долгонога",
+			"Волчатина с пряностями",
+		}
+		shouldCraftRecipe = {
+			"1x Медвежатина", -- Копченая медвежатина
+			"1x Плоть летучей мыши", -- Закуска из летучей мыши
+			"1x Жало скорпида", -- Десерт из скорпида
+			"1x Мясо койота", -- Стейк из койота
+			"1x Мясо моллюска, 1x Освежающая ключевая вода", -- Отварные мидии
+			"1x Печень кровоклыка", -- Рецепт пирожка из печени жутеклыка
+			"1x Сырая бешенка", -- Деликатес из бешенки
+			"1x Сырой острозубый илистый луциан", --- Острозубый илистый луциан
+			"1x Сырой радужный тунец", -- Радужный тунец
+			"1x Мясо долгонога", -- Похлебка из долгонога
+			"1x Жилистая волчатина", -- Волчатина с пряностями
+		}
+	elseif rank > 69 and rank < 80 then -- 70-79
+		shouldCraft = {
+			"Копченая медвежатина",
+			"Десерт из скорпида",
+			"Стейк из койота",
+			"Отварные мидии",
+			"Рецепт пирожка из печени жутеклыка",
+			"Деликатес из бешенки",
+			"Острозубый илистый луциан",
+			"Радужный тунец",
+			"Похлебка из долгонога",
+		}
+		shouldCraftRecipe = {
+			"1x Медвежатина", -- Копченая медвежатина
+			"1x Жало скорпида", -- Десерт из скорпида
+			"1x Мясо койота", -- Стейк из койота
+			"1x Мясо моллюска, 1x Освежающая ключевая вода", -- Отварные мидии
+			"1x Печень кровоклыка", -- Рецепт пирожка из печени жутеклыка
+			"1x Сырая бешенка", -- Деликатес из бешенки
+			"1x Сырой острозубый илистый луциан", -- Острозубый илистый луциан
+			"1x Сырой радужный тунец", -- Радужный тунец
+			"1x Мясо долгонога", -- Похлебка из долгонога
+		}
+	elseif rank > 79 and rank < 110 then -- 80-109
+		shouldCraft = {
+			"Smoked Sagefish",
+			"Crab Cake",
+			"Стейк из койота",
+			"Отварные мидии",
+			"Рецепт пирожка из печени жутеклыка",
+			"Деликатес из бешенки",
+			"Острозубый илистый луциан",
+			"Радужный тунец",
+			"Похлебка из долгонога",
+		}
+		shouldCraftRecipe = {
+			"1x Raw Sagefish", -- Smoked Sagefish
+			"1x Crawler Meat", -- Crab Cake
+			"1x Мясо койота", -- Стейк из койота
+			"1x Мясо моллюска, 1x Освежающая ключевая вода", -- Отварные мидии
+			"1x Печень кровоклыка", -- Рецепт пирожка из печени жутеклыка
+			"1x Сырая бешенка", -- Деликатес из бешенки
+			"1x Сырой острозубый илистый луциан", -- Острозубый илистый луциан
+			"1x Сырой радужный тунец", -- Радужный тунец
+			"1x Мясо долгонога", -- Похлебка из долгонога
+		}
+	elseif rank > 109 and rank < 130 then -- 110-129
+		shouldCraft = {
+			"Большой медвежий стейк",
+			"Gooey Spider Cake",
+			"Smoked Sagefish",
+			"Crab Cake",
+			"Стейк из койота",
+			"Отварные мидии",
+			"Рецепт пирожка из печени жутеклыка",
+			"Деликатес из бешенки",
+			"Острозубый илистый луциан",
+			"Радужный тунец",
+			"Похлебка из долгонога",
+		}
+		shouldCraftRecipe = {
+			"1x Большой медвежий стейк", -- Большой медвежий стейк
+			"2x Gooey Spider Leg", -- Gooey Spider Cake
+			"1x Raw Sagefish", -- Smoked Sagefish
+			"1x Crawler Meat", -- Crab Cake
+			"1x Мясо койота", -- Стейк из койота
+			"1x Мясо моллюска, 1x Освежающая ключевая вода", -- Отварные мидии
+			"1x Печень кровоклыка", --Рецепт пирожка из печени жутеклыка
+			"1x Сырая бешенка", -- Деликатес из бешенки
+			"1x Сырой острозубый илистый луциан", --Острозубый илистый луциан
+			"1x Сырой радужный тунец", -- Радужный тунец
+			"1x Мясо долгонога", -- Похлебка из долгонога
+		}
+	elseif rank > 129 and rank < 140 then -- 130-139
+		shouldCraft = {
+			"Curiously Tasty Omelet",
+			"Hot Lion Chops",
+			"Lean Wolf Steak",
+			"Goblin Deviled Clams",
+			"Crocolisk Gumbo",
+			"Большой медвежий стейк",
+			"Gooey Spider Cake",
+			"Smoked Sagefish",
+			"Crab Cake",
+			"Стейк из койота",
+			"Отварные мидии",
+			"Рецепт пирожка из печени жутеклыка",
+			"Деликатес из бешенки",
+			"Острозубый илистый луциан",
+			"Радужный тунец",
+			"Похлебка из долгонога",
+		}
+		shouldCraftRecipe = {
+			"1x Raptor Egg", --Curiously Tasty Omelet
+			"1x Lion Meat", -- Hot Lion Chops
+			"1x Lean Wolf Flank", -- Lean Wolf Steak
+			"1x Tangy Мясо моллюска", -- Goblin Deviled Clams
+			"1x Tender Crocolisk Meat", -- Crocolisk Gumbo
+			"1x Большой медвежий стейк", -- Большой медвежий стейк
+			"2x Gooey Spider Leg", -- Gooey Spider Cake
+			"1x Raw Sagefish", --- Smoked Sagefish
+			"1x Crawler Meat", -- Crab Cake
+			"1x Мясо койота", -- Стейк из койота
+			"1x Мясо моллюска, 1x Освежающая ключевая вода", -- Отварные мидии
+			"1x Печень кровоклыка", -- Рецепт пирожка из печени жутеклыка
+			"1x Сырая бешенка", -- Деликатес из бешенки
+			"1x Сырой острозубый илистый луциан", -- Острозубый илистый луциан
+			"1x Сырой радужный тунец", -- Радужный тунец
+			"1x Мясо долгонога", -- Похлебка из долгонога
+		}
+	elseif rank > 139 and rank < 175 then -- 140-174
+		shouldCraft = {
+			"Curiously Tasty Omelet",
+			"Hot Lion Chops",
+			"Lean Wolf Steak",
+			"Goblin Deviled Clams",
+			"Crocolisk Gumbo",
+			"Большой медвежий стейк",
+			"Gooey Spider Cake",
+		}
+		shouldCraftRecipe = {
+			"1x Raptor Egg", -- Curiously Tasty Omelet
+			"1x Lion Meat", -- Hot Lion Chops
+			"1x Lean Wolf Flank", -- Lean Wolf Steak
+			"1x Tangy Мясо моллюска", -- Goblin Deviled Clams
+			"1x Tender Crocolisk Meat", -- Crocolisk Gumbo
+			"1x Большой медвежий стейк", -- Большой медвежий стейк
+			"2x Gooey Spider Leg", -- Gooey Spider Cake
+		}
+	elseif rank > 174 and rank < 225 then -- 175-224
+		shouldCraft = {
+			"Roast Raptor",
+			"Barbecued Buzzard Wing",
+			"Sagefish Delight",
+			"Rockscale Cod",
+			"Carrion Surprise",
+			"Giant Clam Scorcho",
+			"Mithril Head Trout",
+			"Soothing Turtle Bisque",
+			"Jungle Stew",
+			"Mystery Stew",
+		}
+		shouldCraftRecipe = {
+			"1x Raptor Flesh", -- Roast Raptor
+			"1x Buzzard Wing", -- Barbecued Buzzard Wing
+			"1x Raw Greater Sagefish", -- Sagefish Delight
+			"1x Raw Rockscale Cod", -- Rockscale Cod
+			"1x Mystery Meat", -- Carrion Surprise
+			"1x Giant Мясо моллюска", -- Giant Clam Scorcho
+			"1x Raw Mithril Head Trout", -- Mithril Head Trout
+			"1x Turtle Meat", -- Soothing Turtle Bisque
+			"1x Tiger Meat, 1x Освежающая ключевая вода", -- Jungle Stew
+			"1x Mystery Meat, 1x Skin of DwarvenStout", -- Mystery Stew
+		}
+	elseif rank > 224 and rank < 250 then -- 225-249
+		shouldCraft = {
+			"Monster Omelet",
+			"Tender Wolf Steak",
+			"Spiced Chili Crab",
+			"Cooked Glossy Mightfish",
+			"Filet of Redgill",
+			"Spotted Yellowtail",
+		}
+		shouldCraftRecipe = {
+			"1x Giant Egg", -- Monster Omelet
+			"1x Tender Wolf Meat", -- Tender Wolf Steak
+			"1x Tender Crab Meat", -- Spiced Chili Crab
+			"1x Raw Glossy Mightfish", -- Cooked Glossy Mightfish
+			"1x Raw Redgill", -- Filet of Redgill
+			"1x Raw Spotted Yellowtail", --- Spotted Yellowtail
+		}
+	elseif rank > 249 and rank < 285 then -- 250-284
+		shouldCraft = {
+			"Juicy Bear Burger",
+			"Charred Bear Kabobs",
+			"Poached Sunscale Salmon",
+		}
+		shouldCraftRecipe = {
+			"1x Bear Flank", -- Juicy Bear Burger
+			"1x Bear Flank", -- Charred Bear Kabobs
+			"1x Raw Sunscale Salmon", -- Poached Sunscale Salmon
+		}
+	elseif rank > 284 and rank < 300 then -- 285-299
+		shouldCraft = {
+			"Копченые пустынные клецки",
+			"Печеный лосось",
+			"Стейк из мощь-рыбы",
+			"Похлебка из омаров",
+			"Десерт из корня рун-тум",
+		}
+		shouldCraftRecipe = {
+			"1x Мясо песчаного червя", -- Копченые пустынные клецки
+			"1x Сырой белочешуйный лосось", --- Печеный лосось
+			"1x Крупная сырая мощь-рыба", -- Стейк из мощь-рыбы
+			"1x Темноклешневый омар, 1x Освежающая ключевая вода", -- Похлебка из омаров
+			"1x Корень Рун-Тум", -- Десерт из корня рун-тум
+		}
+	elseif rank > 299 and rank < 325 then -- 300-324
+		shouldCraft = {
+			"Сосиска из мяса опустошителя",
+			"Закуска из канюка",
+			"Копченая форель",
+			"Лакомство из сквернохвоста",
+			"Зажаренный на открытом огне афиохаракс",
+			'"Кит и кот"',
+		}
+		shouldCraftRecipe = {
+			"1x Плоть опустошителя", -- Сосиска из мяса опустошителя
+			"1x Мясо канюка", -- Закуска из канюка
+			"1x Колючеусая форель", -- Копченая форель
+			"1x Пятнистый сквернохвост", --- Лакомство из сквернохвоста
+			"1x Зубатка афиохаракс", --- Зажаренный на открытом огне афиохаракс
+			"1x Мясо канюка", -- "Кит и кот"
+		}
+	elseif rank > 324 and rank < 335 then -- 325-334
+		shouldCraft = {
+			"Стейк из талбука",
+			"Жареное мясо копытня",
+			"Котлета из прыгуаны",
+		}
+		shouldCraftRecipe = {
+			"1x Мясо дикого талбука", -- Стейк из талбука
+			"1x Мясо копытня", -- Жареное мясо копытня
+			"1x Плоть прыгуаны", -- Котлета из прыгуаны
+		}
+	elseif rank > 334 and rank < 350 then -- 335-349
+		shouldCraft = {
+			"Стейк из талбука",
+			"Жареное мясо копытня",
+			"Котлета из прыгуаны",
+			"Ребрышки из Мок'Натала",
+			"Поджаристый змей",
+		}
+		shouldCraftRecipe = {
+			"1x Мясо дикого талбука", -- Стейк из талбука
+			"1x Мясо копытня", -- Жареное мясо копытня
+			"1x Плоть прыгуаны", -- Котлета из прыгуаны
+			"1x Ребра ящера", -- Ребрышки из Мок'Натала
+			"1x Змеиное мясо", -- Поджаристый змей
+		}
+	elseif rank > 349 and rank < 375 then -- 350-374
+		shouldCraft = {
+			"Печеный морской дьявол",
+			"Кушанье из мамонта",
+			"Вареная медуза",
+			"Копченый лосось",
+			"Маринованная клыкозубая сельдь",
+			"Подкаменщик-гриль",
+			"Сосиски из люторога",
+			"Деликатес из змея",
+			"Жареный ворг",
+			"Стейк из черпорога",
+			"Северная похлебка",
+			"Копченый камнеперый окунь",
+			"Костечешуйный луциан - гриль",
+			"Соте из бычков",
+			"Даларанская похлебка из моллюсков",
+			"Рак с пряностями",
+			"Рыбацкая услада",
+			"Жареная форель",
+		}
+		shouldCraftRecipe = {
+			"1x Королевский морской дьявол", -- Печеный морской дьявол
+			"1x Кусок мяса мамонта", -- Кушанье из мамонта
+			"1x Медуза", -- Вареная медуза
+			"1x Ледниковый лосось", -- Копченый лосось
+			"1x Клыкозубая сельдь", -- Маринованная клыкозубая сельдь
+			"1x Ракушечный подкаменщик", -- Подкаменщик-гриль
+			"1x Мясо люторога", --  Сосиски из люторога
+			"1x Мясо червя", -- Деликатес из змея
+			"1x Окорок ворга", -- Жареный ворг
+			"1x Бок черпорога", -- Стейк из черпорога
+			"1x Охлажденное мясо", -- Северная похлебка
+			"1x Камнеперый морской окунь", -- Копченый камнеперый окунь
+			"1x Костечешуйный луциан", -- Костечешуйный луциан - гриль
+			"1x Бочкоголовый бычок", -- Соте из бычков
+			"2x Сочное мясо моллюска", -- Даларанская похлебка из моллюсков
+			"1x Разъяренный речной рак", -- Рак с пряностями
+			"1x Огромный пятнистый сквернохвост", -- Рыбацкая услада
+			"1x Громадная колючеусая форель", -- Жареная форель
+		}
+	elseif rank > 374 and rank < 400 then -- 375-399
+		shouldCraft = {
+			"Кунгалуш",
+			"Печеный морской дьявол",
+			"Кушанье из мамонта",
+			"Вареная медуза",
+			"Копченый лосось",
+			"Маринованная клыкозубая сельдь",
+			"Подкаменщик-гриль",
+			"Сосиски из люторога",
+			"Деликатес из змея",
+			"Жареный ворг",
+			"Стейк из черпорога",
+			"Даларанская похлебка из моллюсков",
+		}
+		shouldCraftRecipe = {
+			"2x Тундровая ягода, 1x Снежная слива с чабером", -- Кунгалуш
+			"1x Королевский морской дьявол", -- Печеный морской дьявол
+			"1x Кусок мяса мамонта", -- Кушанье из мамонта
+			"1x Медуза", -- Вареная медуза
+			"1x Ледниковый лосось", -- Копченый лосось
+			"1x Клыкозубая сельдь", -- Маринованная клыкозубая сельдь
+			"1x Ракушечный подкаменщик", -- Подкаменщик-гриль
+			"1x Мясо люторога", -- Сосиски из люторога
+			"1x Мясо червя", -- Деликатес из змея
+			"1x Окорок ворга", -- Жареный ворг
+			"1x Бок черпорога", --- Стейк из черпорога
+			"2x Сочное мясо моллюска", -- Даларанская похлебка из моллюсков
+		}
+	elseif rank > 399 and rank < 425 then -- 400-424
+		shouldCraft = {
+			"Подкопченная дракоперая рыба-ангел",
+			"Филе дракоперой рыбы-ангела",
+			"Подкопченный стейк из ворга",
+			"Пережаренное мясо ворга",
+			"Стейк из каракатицы",
+			"Лосось с дымком",
+			"Сочное мясо люторога",
+			"Стейк из королевского ската",
+			"Вареный северный подкаменщик",
+			"Вареный северный подкаменщик",
+			"Синяя медуза с пряностями",
+			"Острая жареная сельдь",
+			"Завтрак следопыта",
+		}
+		shouldCraftRecipe = {
+			"1x Дракоперая рыба-ангел, 1x Северные пряности", -- Подкопченная дракоперая рыба-ангел
+			"1x Дракоперая рыба-ангел, 1x Северные пряности", -- Филе дракоперой рыбы-ангела
+			"1x Окорок ворга, 1x Северные пряности", -- Подкопченный стейк из ворга
+			"1x Окорок ворга, 1x Северные пряности", -- Пережаренное мясо ворга
+			"1x Каракатица лунного сияния, 1x Северные пряности", -- Стейк из каракатицы
+			"1x Ледниковый лосось, 1x Северные пряности", -- Лосось с дымком
+			"1x Мясо люторога, 1x Северные пряности", -- Сочное мясо люторога
+			"1x Королевский морской дьявол, 1x Северные пряности", -- Стейк из королевского ската
+			"1x Ракушечный подкаменщик, 1x Северные пряности", --- Вареный северный подкаменщик
+			"1x Кусок мяса мамонта, 1x Северные пряности", -- Вареный северный подкаменщик
+			"1x Медуза, 1x Северные пряности", -- Синяя медуза с пряностями
+			"1x Клыкозубая сельдь, 1x Северные пряности", -- Острая жареная сельдь
+			"1x Бок черпорога, 1x Северные пряности", -- Завтрак следопыта
+		}
+	elseif rank > 424 and rank < 450 then -- 425-449
+		shouldCraft = {
+			"Пир для великанов",
+			"Пир для карликов",
+			"Подкопченная дракоперая рыба-ангел",
+			"Филе дракоперой рыбы-ангела",
+			"Подкопченный стейк из ворга",
+			"Пережаренное мясо ворга",
+			"Стейк из каракатицы",
+			"Лосось с дымком",
+			"Сочное мясо люторога",
+			"Стейк из королевского ската",
+			"Вареный северный подкаменщик",
+			"Пряное лакомство из мамонта",
+			"Синяя медуза с пряностями",
+			"Острая жареная сельдь",
+			"Завтрак следопыта",
+		}
+		shouldCraftRecipe = {
+			"1x Северные пряности, 2x Кусок мяса мамонта, 2x Глубоководное чудо-юдо, 2x Камнеперый морской окунь", -- Пир для великанов
+			"1x Северные пряности, 2x Ледниковый лосось, 2x Медуза, 2x Мясо люторога", -- Пир для карликов
+			"1x Дракоперая рыба-ангел, 1x Северные пряности", -- Подкопченная дракоперая рыба-ангел
+			"1x Дракоперая рыба-ангел, 1x Северные пряности", -- Филе дракоперой рыбы-ангела
+			"1x Окорок ворга, 1x Северные пряности", -- Подкопченный стейк из ворга
+			"1x Окорок ворга, 1x Северные пряности", -- Пережаренное мясо ворга
+			"1x Каракатица лунного сияния, 1x Северные пряности", -- Стейк из каракатицы
+			"1x Ледниковый лосось, 1x Северные пряности", -- Лосось с дымком
+			"1x Мясо люторога, 1x Северные пряности", -- Сочное мясо люторога
+			"1x Королевский морской дьявол, 1x Северные пряности", -- Стейк из королевского ската
+			"1x Ракушечный подкаменщик, 1x Северные пряности", -- Вареный северный подкаменщик
+			"1x Кусок мяса мамонта, 1x Северные пряности", -- Пряное лакомство из мамонта
+			"1x Медуза, 1x Северные пряности", -- Синяя медуза с пряностями
+			"1x Клыкозубая сельдь, 1x Северные пряности", -- Острая жареная сельдь
+			"1x Бок черпорога, 1x Северные пряности", -- Завтрак следопыта
+		}
+	end
+	return shouldCraft, shouldCraftRecipe
 end
 
-print("|cff" .. addonTable.chat_frame_default_color .. '[Profession Capper] loaded Cooking module|r');
+print("|cff" .. addonTable.chat_frame_default_color .. "[Profession Capper] loaded Cooking module|r")
