@@ -1,10 +1,6 @@
 -- Variables for addon environment
 local addonName, addonTable = ...
 
--- Constants for chat coloring
-addonTable.chat_frame_default_color = "6BFF75" --pastel green
-addonTable.chat_frame_player_name_color = "6BC6FF" -- pastel blue
-
 -- Current profession frame details
 local tradeSkillName, rank
 local isLinked -- Determines if it's your own profession frame or a link
@@ -15,7 +11,7 @@ local CrafRecipe = {} -- Materials needed to craft the suggested recipe
 local craftRecipeOptionsIndex = 1 -- Index for cycling through recipe options
 
 -- Track the last suggested recipe
-local previousShouldCraft = {}
+local previousToCraft = {}
 
 -- Addon initialization
 function FnOnLoad()
@@ -26,9 +22,9 @@ function FnOnLoad()
 			.. UnitName("player")
 			.. "|r"
 	)
-	this:RegisterEvent("TRADE_SKILL_UPDATE")
-	this:RegisterEvent("TRADE_SKILL_CLOSE")
-	this:RegisterForDrag("LeftButton")
+	MainFrameCore:RegisterEvent("TRADE_SKILL_UPDATE")
+	MainFrameCore:RegisterEvent("TRADE_SKILL_CLOSE")
+	MainFrameCore:RegisterForDrag("LeftButton")
 
 	SlashCmdList["TOGGLE_PCAPPER_FRAME"] = TogglePcapperFrame
 	SLASH_TOGGLE_PCAPPER_FRAME1 = "/pcapper"
@@ -127,7 +123,8 @@ end
 -- Update the suggested recipe and UI elements based on the selected recipe
 local function UpdateRecipeUI()
 	local enableBtnCraft = false
-	for i = 1, GetNumTradeSkills() do
+	local numTradeSkills = GetNumTradeSkills()
+	for i = 1, numTradeSkills do
 		local skillName, _, numAvailable = GetTradeSkillInfo(i)
 
 		if skillName == toCraft[craftRecipeOptionsIndex] then
@@ -156,7 +153,9 @@ end
 
 -- Display the suggested recipe and update UI
 function DisplayRecipe()
-	local hasRecipeChanged = table.concat(toCraft) ~= table.concat(previousShouldCraft)
+	local hasRecipeChanged = table.concat(toCraft) ~= table.concat(previousToCraft)
+	print('To craft: "' .. table.concat(toCraft) .. '"')
+	print('Previous: "' .. table.concat(previousToCraft) .. '"')
 
 	-- If recipe changed, reset the index to the first option
 	if hasRecipeChanged then
@@ -167,7 +166,7 @@ function DisplayRecipe()
 	UpdateRecipeUI()
 
 	-- Save the current state for future comparisons
-	previousShouldCraft = toCraft
+	previousToCraft = toCraft
 end
 
 -- Navigate to the next recipe

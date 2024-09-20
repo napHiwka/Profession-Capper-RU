@@ -1,7 +1,7 @@
 local addonName, addonTable = ...
 local shouldCraft, shouldCraftRecipe
 
-addonTable.getAlchemyCurrentSkillLevelRecipeToCraft = function(rank)
+addonTable.getAlchemy = function(rank)
 	if rank > 0 and rank < 60 then -- 1-59
 		shouldCraft = { "Крохотный флакон с лечебным зельем" }
 		shouldCraftRecipe = { "1x Мироцвет, 1x Сребролист, 1x Пустая колба" }
