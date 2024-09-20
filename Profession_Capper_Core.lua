@@ -1,6 +1,10 @@
 -- Variables
 local addonName, addonTable = ...
 
+-- Constants for chat coloring
+addonTable.chat_frame_default_color = "6BFF75" --pastel green
+addonTable.chat_frame_player_name_color = "6BC6FF" -- pastel blue
+
 -- Current profession frame details
 local tradeSkillName, rank, maxLevel
 local isLinked, name -- Determines if it's your own profession frame or a link

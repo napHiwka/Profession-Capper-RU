@@ -1,13 +1,14 @@
 <Ui xmlns="http://www.blizzard.com/wow/ui/"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.blizzard.com/wow/ui/">
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.blizzard.com/wow/ui/">
 
   <!-- Reference to core script -->
-  <Script file="Core.lua"/>
+  <Script file="Profession_Capper_Core.lua" />
 
   <!-- Main frame for the addon -->
-  <Frame name="MainFrameCore" parent="UIParent" hidden="true" movable="true" enableMouse="true" clampedToScreen="true">
-    
+  <Frame name="MainFrameCore" parent="UIParent" hidden="true" movable="true" enableMouse="true"
+    clampedToScreen="true">
+
     <!-- Frame Scripts -->
     <Scripts>
       <OnLoad>fnOnLoad();</OnLoad>
@@ -21,26 +22,27 @@
       <Anchor point="BOTTOMLEFT" relativePoint="BOTTOMLEFT">
         <Offset>
           <!-- Position at the bottom-left corner of the screen -->
-          <AbsDimension x="0" y="0"/>
+          <AbsDimension x="0" y="0" />
         </Offset>
       </Anchor>
     </Anchors>
 
     <!-- Frame size -->
     <Size>
-      <AbsDimension x="225" y="250"/>
+      <AbsDimension x="225" y="250" />
     </Size>
 
     <!-- Frame backdrop (background and border) -->
-    <Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" tile="true" edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
+    <Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" tile="true"
+      edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
       <TileSize>
-        <AbsValue val="32"/>
+        <AbsValue val="32" />
       </TileSize>
       <EdgeSize>
-        <AbsValue val="32"/>
+        <AbsValue val="32" />
       </EdgeSize>
       <BackgroundInsets>
-        <AbsInset left="11" right="12" top="12" bottom="11"/>
+        <AbsInset left="11" right="12" top="12" bottom="11" />
       </BackgroundInsets>
     </Backdrop>
 
@@ -51,12 +53,12 @@
         <!-- Header texture -->
         <Texture name="$parentTitle" file="Interface\DialogFrame\UI-DialogBox-Header">
           <Size>
-            <AbsDimension x="430" y="64"/>
+            <AbsDimension x="430" y="64" />
           </Size>
           <Anchors>
             <Anchor point="TOP">
               <Offset>
-                <AbsDimension x="0" y="0"/>
+                <AbsDimension x="0" y="0" />
               </Offset>
             </Anchor>
           </Anchors>
@@ -65,12 +67,12 @@
         <!-- Skill icon texture (shows profession icon) -->
         <Texture name="imgSkillIcon" file="Interface\InventoryItems\WoWUnknownItem01">
           <Size>
-            <AbsDimension x="50" y="50"/>
+            <AbsDimension x="50" y="50" />
           </Size>
           <Anchors>
             <Anchor point="TOP">
               <Offset>
-                <AbsDimension y="-75"/>
+                <AbsDimension y="-75" />
               </Offset>
             </Anchor>
           </Anchors>
@@ -81,7 +83,7 @@
           <Anchors>
             <Anchor point="TOP" relativeTo="$parentTitle">
               <Offset>
-                <AbsDimension x="0" y="-14"/>
+                <AbsDimension x="0" y="-14" />
               </Offset>
             </Anchor>
           </Anchors>
@@ -90,12 +92,12 @@
         <!-- Text field to display the suggested recipe -->
         <FontString name="txtShouldCraft" inherits="GameFontNormal">
           <Size>
-            <AbsDimension x="200"/>
+            <AbsDimension x="200" />
           </Size>
           <Anchors>
             <Anchor point="TOP" relativeTo="$parentTitle">
               <Offset>
-                <AbsDimension x="0" y="-50"/>
+                <AbsDimension x="0" y="-50" />
               </Offset>
             </Anchor>
           </Anchors>
@@ -104,12 +106,12 @@
         <!-- Text field to display the materials required for the recipe -->
         <FontString name="txtShouldCraftRecipe" inherits="GameFontNormal">
           <Size>
-            <AbsDimension x="200"/>
+            <AbsDimension x="200" />
           </Size>
           <Anchors>
             <Anchor point="TOP" relativeTo="$parentTitle">
               <Offset>
-                <AbsDimension x="0" y="-165"/>
+                <AbsDimension x="0" y="-165" />
               </Offset>
             </Anchor>
           </Anchors>
@@ -123,12 +125,12 @@
       <!-- "Craft" button to craft the suggested recipe -->
       <Button name="$parentCraft" text="TXT_CRAFT" inherits="UIPanelButtonTemplate">
         <Size>
-          <AbsDimension x="96" y="32"/>
+          <AbsDimension x="96" y="32" />
         </Size>
         <Anchors>
           <Anchor point="TOP">
             <Offset>
-              <AbsDimension y="-125"/>
+              <AbsDimension y="-125" />
             </Offset>
           </Anchor>
         </Anchors>
@@ -145,12 +147,12 @@
       <!-- "Next recipe" button to cycle to the next suggested recipe -->
       <Button name="$parentNextRecipe" text="&gt;" inherits="UIPanelButtonTemplate">
         <Size>
-          <AbsDimension x="32" y="32"/>
+          <AbsDimension x="32" y="32" />
         </Size>
         <Anchors>
           <Anchor point="TOPRIGHT">
             <Offset>
-              <AbsDimension x="-20" y="-125"/>
+              <AbsDimension x="-20" y="-125" />
             </Offset>
           </Anchor>
         </Anchors>
@@ -167,12 +169,12 @@
       <!-- "Previous recipe" button to cycle to the previous suggested recipe -->
       <Button name="$parentPreviousRecipe" text="&lt;" inherits="UIPanelButtonTemplate">
         <Size>
-          <AbsDimension x="32" y="32"/>
+          <AbsDimension x="32" y="32" />
         </Size>
         <Anchors>
           <Anchor point="TOPLEFT">
             <Offset>
-              <AbsDimension x="20" y="-125"/>
+              <AbsDimension x="20" y="-125" />
             </Offset>
           </Anchor>
         </Anchors>

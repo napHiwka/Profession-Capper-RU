@@ -10,7 +10,6 @@
 
     - с [GitHub](https://github.com/napHiwka/Profession-Capper-RU/releases)
 
-
 2. Распакуйте архив "Profession_Capper.zip".
 
 3. Переместите новую папку "Profession_Capper" в каталог `<Папка с WoW>/Interface/AddOns`
@@ -85,7 +84,7 @@
 ![Profession Capper - Recipe not learnt yet](https://imgur.com/Q2eXK6f.jpg)
 
 # Поддержка
-Вы можете создать тикет в репозитории 
+Вы можете создать тикет в репозитории
 
 # Оригинальный автор
 `@SamuelLira99` - [Twitter](https://twitter.com/SamuelLira99)

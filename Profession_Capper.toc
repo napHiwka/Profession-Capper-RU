@@ -3,7 +3,6 @@
 ## Notes: Подсказывает что необходимо скрафтить при текущем уровне скилла профессии
 ## Version: v1.0.0-beta16
 
-constants.lua
 Professions\Enchanting.lua
 Professions\Tailoring.lua
 Professions\Jewelcrafting.lua
