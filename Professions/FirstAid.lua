@@ -1,4 +1,4 @@
-addonName, addonTable = ...
+local addonName, addonTable = ...
 
 local CraftingData = {
 	{
@@ -146,7 +146,7 @@ local CraftingData = {
 	},
 }
 
-addonTable.getFirstAidCurrentSkillLevelRecipeToCraft = function(rank)
+addonTable.getFirstAid = function(rank)
 	for _, data in ipairs(CraftingData) do
 		if rank >= data.min and rank <= data.max then
 			return data.craft, data.recipe
@@ -155,4 +155,4 @@ addonTable.getFirstAidCurrentSkillLevelRecipeToCraft = function(rank)
 	return nil, nil -- Return nil if no match is found
 end
 
-print("|cff" .. addonTable.chat_frame_default_color .. "[Profession Capper] loaded First Aid module|r")
+print("[Profession Capper] loaded First Aid module")

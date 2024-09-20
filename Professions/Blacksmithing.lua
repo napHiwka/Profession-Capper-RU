@@ -1,5 +1,4 @@
-addonName, addonTable = ...
-
+local addonName, addonTable = ...
 local craftingData = {
 	{ min = 1, max = 29, craft = { "Грубое точило" }, recipe = { "1x Грубый камень" } },
 	{
@@ -308,7 +307,7 @@ local craftingData = {
 	},
 }
 
-addonTable.getBlacksmithingCurrentSkillLevelRecipeToCraft = function(rank)
+addonTable.getBlacksmithing = function(rank)
 	for _, data in ipairs(craftingData) do
 		if rank >= data.min and rank <= data.max then
 			return data.craft, data.recipe
@@ -317,4 +316,4 @@ addonTable.getBlacksmithingCurrentSkillLevelRecipeToCraft = function(rank)
 	return nil, nil -- Return nil if no match is found
 end
 
-print("|cff" .. addonTable.chat_frame_default_color .. "[Profession Capper] loaded Blacksmithing module|r")
+print("[Profession Capper] loaded Blacksmithing module")

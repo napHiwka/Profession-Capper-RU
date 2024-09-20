@@ -1,8 +1,7 @@
-addonName, addonTable = ...
-
+local addonName, addonTable = ...
 local shouldCraft, shouldCraftRecipe
 
-addonTable.getInscriptionCurrentSkillLevelRecipeToCraft = function(rank)
+addonTable.getInscription = function(rank)
 	if rank > 0 and rank < 19 then -- 1-18
 		shouldCraft = { "Ivory Ink" }
 		shouldCraftRecipe = { "1x Alabaster Pigment" }
@@ -853,4 +852,4 @@ addonTable.getInscriptionCurrentSkillLevelRecipeToCraft = function(rank)
 	return shouldCraft, shouldCraftRecipe
 end
 
-print("|cff" .. addonTable.chat_frame_default_color .. "[Profession Capper] loaded Inscription module|r")
+print("[Profession Capper] loaded Inscription module")

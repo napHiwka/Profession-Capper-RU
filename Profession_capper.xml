@@ -11,8 +11,8 @@
 
     <!-- Frame Scripts -->
     <Scripts>
-      <OnLoad>fnOnLoad();</OnLoad>
-      <OnEvent>fnOnEvent();</OnEvent>
+      <OnLoad>FnOnLoad();</OnLoad>
+      <OnEvent>FnOnEvent();</OnEvent>
       <OnDragStart>self:StartMoving();</OnDragStart>
       <OnDragStop>self:StopMovingOrSizing();</OnDragStop>
     </Scripts>
@@ -139,7 +139,7 @@
             self:RegisterForClicks("LeftButtonUp");
           </OnLoad>
           <OnClick>
-            craftRecipe();
+            CraftRecipe();
           </OnClick>
         </Scripts>
       </Button>
@@ -161,7 +161,7 @@
             self:RegisterForClicks("LeftButtonUp");
           </OnLoad>
           <OnClick>
-            displayNextRecipe();
+            DisplayNextRecipe();
           </OnClick>
         </Scripts>
       </Button>
@@ -183,7 +183,7 @@
             self:RegisterForClicks("LeftButtonUp");
           </OnLoad>
           <OnClick>
-            displayPreviousRecipe();
+            DisplayPreviousRecipe();
           </OnClick>
         </Scripts>
       </Button>

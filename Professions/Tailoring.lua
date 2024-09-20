@@ -1,4 +1,4 @@
-addonName, addonTable = ...
+local addonName, addonTable = ...
 
 local craftingData = {
 	{
@@ -242,7 +242,7 @@ local craftingData = {
 	},
 }
 
-addonTable.getTailoringCurrentSkillLevelRecipeToCraft = function(rank)
+addonTable.getTailoring = function(rank)
 	for _, data in ipairs(craftingData) do
 		if rank >= data.min and rank <= data.max then
 			return data.craft, data.recipe
@@ -251,4 +251,4 @@ addonTable.getTailoringCurrentSkillLevelRecipeToCraft = function(rank)
 	return nil, nil -- Return nil if no match is found
 end
 
-print("|cff" .. addonTable.chat_frame_default_color .. "[Profession Capper] loaded Tailoring module|r")
+print("[Profession Capper] loaded Tailoring module")

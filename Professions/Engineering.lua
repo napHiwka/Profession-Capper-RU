@@ -1,8 +1,7 @@
-addonName, addonTable = ...
-
+local addonName, addonTable = ...
 local shouldCraft, shouldCraftRecipe
 
-addonTable.getEngineeringCurrentSkillLevelRecipeToCraft = function(rank)
+addonTable.getEngineering = function(rank)
 	if rank > 0 and rank < 21 then -- 1-20
 		shouldCraft = { "Грубое взрывчатое вещество" }
 		shouldCraftRecipe = { "1x Грубый камень" }
@@ -304,4 +303,4 @@ addonTable.getEngineeringCurrentSkillLevelRecipeToCraft = function(rank)
 	return shouldCraft, shouldCraftRecipe
 end
 
-print("|cff" .. addonTable.chat_frame_default_color .. "[Profession Capper] loaded Engineering module|r")
+print("[Profession Capper] loaded Engineering module")

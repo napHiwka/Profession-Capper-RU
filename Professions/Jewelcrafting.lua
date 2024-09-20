@@ -1,8 +1,7 @@
 local addonName, addonTable = ...
-
 local shouldCraft, shouldCraftRecipe
 
-addonTable.getJewelcraftingCurrentSkillLevelRecipeToCraft = function(rank)
+addonTable.getJewelcrafting = function(rank)
 	if rank > 0 and rank < 30 then -- 1-29
 		shouldCraft = { "Delicate Copper Wire" }
 		shouldCraftRecipe = { "2x Copper Bar" }
@@ -465,4 +464,4 @@ addonTable.getJewelcraftingCurrentSkillLevelRecipeToCraft = function(rank)
 	return shouldCraft, shouldCraftRecipe
 end
 
-print("|cff" .. addonTable.chat_frame_default_color .. "[Profession Capper] loaded Jewelcrafting module|r")
+print("[Profession Capper] loaded Jewelcrafting module")

@@ -1,8 +1,7 @@
 local addonName, addonTable = ...
-
 local shouldCraft, shouldCraftRecipe
 
-addonTable.getEnchantingCurrentSkillLevelRecipeToCraft = function(rank)
+addonTable.getEnchanting = function(rank)
 	if rank > 0 and rank < 2 then -- 1
 		shouldCraft = { "Рунический медный жезл" }
 		shouldCraftRecipe = {
@@ -504,4 +503,4 @@ addonTable.getEnchantingCurrentSkillLevelRecipeToCraft = function(rank)
 	return shouldCraft, shouldCraftRecipe
 end
 
-print("|cff" .. addonTable.chat_frame_default_color .. "[Profession Capper] loaded Enchanting module|r")
+print("[Profession Capper] loaded Enchanting module")

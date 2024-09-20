@@ -1,8 +1,7 @@
-addonName, addonTable = ...
-
+local addonName, addonTable = ...
 local shouldCraft, shouldCraftRecipe
 
-addonTable.getCookingCurrentSkillLevelRecipeToCraft = function(rank)
+addonTable.getCooking = function(rank)
 	if rank > 0 and rank < 20 then -- 1-19
 		shouldCraft = {
 			"Хлеб с пряностями",
@@ -492,4 +491,4 @@ addonTable.getCookingCurrentSkillLevelRecipeToCraft = function(rank)
 	return shouldCraft, shouldCraftRecipe
 end
 
-print("|cff" .. addonTable.chat_frame_default_color .. "[Profession Capper] loaded Cooking module|r")
+print("[Profession Capper] loaded Cooking module")

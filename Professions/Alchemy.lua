@@ -1,5 +1,4 @@
-addonName, addonTable = ...
-
+local addonName, addonTable = ...
 local shouldCraft, shouldCraftRecipe
 
 addonTable.getAlchemyCurrentSkillLevelRecipeToCraft = function(rank)
@@ -170,4 +169,4 @@ addonTable.getAlchemyCurrentSkillLevelRecipeToCraft = function(rank)
 	return shouldCraft, shouldCraftRecipe
 end
 
-print("|cff" .. addonTable.chat_frame_default_color .. "[Profession Capper] loaded Alchemy module|r")
+print("[Profession Capper] loaded Alchemy module")

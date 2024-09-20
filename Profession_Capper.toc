@@ -1,7 +1,7 @@
 ## Interface: 30300
 ## Title: Profession Capper RU
 ## Notes: Подсказывает что необходимо скрафтить при текущем уровне скилла профессии
-## Version: v1.0.0-beta16
+## Version: v0.6
 
 Professions\Enchanting.lua
 Professions\Tailoring.lua
