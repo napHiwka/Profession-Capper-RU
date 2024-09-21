@@ -720,5 +720,3 @@ addonTable.getInscription = function(rank)
 	end
 	return nil, nil -- Return nil if no match is found
 end
-
-print("[Profession Capper] loaded Inscription module")
