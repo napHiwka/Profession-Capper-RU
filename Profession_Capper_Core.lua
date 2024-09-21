@@ -38,7 +38,7 @@ function FnOnEvent()
 		-- Get profession name, current level
 		tradeSkillName, rank = GetTradeSkillLine()
 		GetCraftingToDo()
-		if CheckProfessionCap() then
+		if CheckProfessionCap() and tradeSkillName ~= "Горное дело" then
 			DisplayRecipe()
 			MainFrameCore:Show()
 		end
@@ -78,6 +78,7 @@ function GetCraftingToDo()
 	}
 
 	-- Get recipe suggestion based on current rank
+	print(tradeSkillName)
 	if professionRecipes[tradeSkillName] then
 		toCraft, CrafRecipe = professionRecipes[tradeSkillName](rank)
 	end
@@ -88,17 +89,7 @@ function CheckProfessionCap()
 	if rank > 0 and rank < 450 then
 		return true
 	else
-		-- If the cap is reached, display a message
-		toCraft, CrafRecipe = { "Неизвестно" }, { "Неизвестно" }
-		txtShouldCraft:SetText(
-			"Поздравляем! Вы достигли максимального уровня профессии!"
-		)
-		imgSkillIcon:SetTexture(GetSpellTexture(tradeSkillName))
-		txtShouldCraftRecipe:SetText("")
-		MainFrameCoreCraft:Hide()
-		MainFrameCoreNextRecipe:Hide()
-		MainFrameCorePreviousRecipe:Hide()
-		MainFrameCore:SetHeight(150)
+		return false
 	end
 end
 
