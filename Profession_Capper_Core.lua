@@ -107,8 +107,17 @@ local function UpdateRecipeButtons()
 	MainFrameCorePreviousRecipe:Show()
 	MainFrameCoreNextRecipe:Show()
 
-	MainFrameCorePreviousRecipe:SetEnabled(craftRecipeOptionsIndex > 1)
-	MainFrameCoreNextRecipe:SetEnabled(craftRecipeOptionsIndex < #toCraft)
+	if craftRecipeOptionsIndex <= 1 then
+		MainFrameCorePreviousRecipe:Disable()
+	else
+		MainFrameCorePreviousRecipe:Enable()
+	end
+
+	if craftRecipeOptionsIndex >= #toCraft then
+		MainFrameCoreNextRecipe:Disable()
+	else
+		MainFrameCoreNextRecipe:Enable()
+	end
 end
 
 -- Update the suggested recipe and UI elements based on the selected recipe
@@ -135,7 +144,12 @@ local function UpdateRecipeUI()
 		end
 	end
 
-	MainFrameCoreCraft:SetEnabled(enableBtnCraft)
+	if enableBtnCraft then
+		MainFrameCoreCraft:Enable()
+	else
+		MainFrameCoreCraft:Disable()
+	end
+
 	txtShouldCraft:SetText(toCraft[craftRecipeOptionsIndex])
 	txtShouldCraftRecipe:SetText("Рецепт: " .. CrafRecipe[craftRecipeOptionsIndex])
 	MainFrameCore:SetHeight(250)
