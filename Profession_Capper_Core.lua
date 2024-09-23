@@ -15,13 +15,6 @@ local previousToCraft = {}
 
 -- Addon initialization
 function FnOnLoad()
-	print(
-		"|cff6BFF75[Profession Capper] loaded for|r |cff6BC6FF["
-			.. UnitLevel("player")
-			.. "] "
-			.. UnitName("player")
-			.. "|r"
-	)
 	MainFrameCore:RegisterEvent("TRADE_SKILL_UPDATE")
 	MainFrameCore:RegisterEvent("TRADE_SKILL_CLOSE")
 	MainFrameCore:RegisterForDrag("LeftButton")
@@ -78,7 +71,7 @@ function GetCraftingToDo()
 	}
 
 	-- Get recipe suggestion based on current rank
-	print(tradeSkillName)
+	-- print(tradeSkillName)
 	if professionRecipes[tradeSkillName] then
 		toCraft, CrafRecipe = professionRecipes[tradeSkillName](rank)
 	end
@@ -159,8 +152,8 @@ end
 -- Display the suggested recipe and update UI
 function DisplayRecipe()
 	local hasRecipeChanged = table.concat(toCraft) ~= table.concat(previousToCraft)
-	print('To craft: "' .. table.concat(toCraft) .. '"')
-	print('Previous: "' .. table.concat(previousToCraft) .. '"')
+	-- print('To craft: "' .. table.concat(toCraft) .. '"')
+	-- print('Previous: "' .. table.concat(previousToCraft) .. '"')
 
 	-- If recipe changed, reset the index to the first option
 	if hasRecipeChanged then
@@ -197,7 +190,7 @@ function CraftRecipe()
 
 		if skillName == toCraft[craftRecipeOptionsIndex] then
 			print(
-				"|cff6BFF75[ProfCapper] crafting|r |cff6BC6FF"
+				"|cff6BFF75[ProfCapper] делаю|r |cff6BC6FF"
 					.. numAvailable
 					.. "x |r|cff6BFF75"
 					.. toCraft[craftRecipeOptionsIndex]

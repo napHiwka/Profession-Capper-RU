@@ -4,7 +4,7 @@
 
 При открытии **окна профессии**, рядом откроется окно **Profession Capper**. Оно подскажет, какой рецепт лучше создать, чтобы повысить уровень навыка вашей **профессии**.
 
-По умолчанию, окно **Profession Capper** расположено в **левом нижнем углу экрана**, но вы можете переместить его в любое удобное место.
+По умолчанию, окно **Profession Capper** расположено в **левом нижнем углу экрана**, но вы можете переместить его в любое удобное место. Для корректной работы необходимо **убрать галочку** в окне крафта *"Есть материалы"*.
 
 ## Инструкция
 
@@ -54,49 +54,13 @@
 
 ## Скриншоты
 
-### Когда профессия уже достигла максимума
-
-![Profession Capper - cap already reached](https://imgur.com/viU8cIc.jpg)
-
-### Наложение чар
-
-![Profession Capper - Enchanting](https://imgur.com/Zb8udRn.jpg)
-
-### Портняжное дело
-
-![Profession Capper - Tailoring](https://imgur.com/qN6gBAN.jpg)
-
-### Кузнечное дело
-
-![Profession Capper - Blacksmithing](https://imgur.com/m36QPKT.jpg)
-
 ### Алхимия
 
-![Profession Capper - Alchemy](https://imgur.com/74Cw1lp.jpg)
-
-### Ювелирное дело
-
-![Profession Capper - Jewelcrafting](https://imgur.com/rMzesUO.jpg)
-
-### Кожевничество
-
-![Profession Capper - Leatherworking](https://imgur.com/7Gn10JT.jpg)
-
-### Начертание
-
-![Profession Capper - Inscription](https://imgur.com/Zef1GWz.jpg)
-
-### Кулинария
-
-![Profession Capper - Cooking](https://imgur.com/wlDzjSS.jpg)
-
-### Первая помощь
-
-![Profession Capper - First Aid](https://imgur.com/voG9Ecr.jpg)
+![Profession Capper - Alchemy](https://i.imgur.com/TSQo1aF.png)
 
 ### Когда рецепт еще не изучен
 
-![Profession Capper - Recipe not learnt yet](https://imgur.com/Q2eXK6f.jpg)
+![Profession Capper - Recipe not learnt yet](https://i.imgur.com/0Dl8xQM.png)
 
 ## Поддержка
 
